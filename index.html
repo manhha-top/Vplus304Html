@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vietnamplus</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid p-0">
+    <!-- Navbar với logo -->
+<!--    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" height="28" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>-->
+
+    <!-- Container chứa video và logo -->
+    <div class="video-container">
+        <video id="intro-video" autoplay muted loop>
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+        </video>
+
+        <!-- Logo đè lên video -->
+        <div class="logo-overlay">
+            <img src="images/logo.png" alt="Logo" class="img-fluid">
+        </div>
+    </div>
+
+    <button id="scroll-down" class="btn btn-primary">
+        <img src="https://icons8.com/icons/set/scroll-down" alt="Cuộn xuống" width="30" height="30">
+    </button>
+
+    <!--Slider-->
+
+    <!-- HTML cho slider -->
+    <div class="slider-section">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <!--End Slider-->
+
+
+
+
+    <div class="content">
+        <div class="container">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
+            <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode"></spline-viewer>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!--<script src="js/custom.js"></script>-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('intro-video');
+        const scrollButton = document.getElementById('scroll-down');
+        const sliderSection = document.querySelector('.slider-section'); // Đặt class này cho phần slider ảnh
+
+        video.addEventListener('play', function() {
+            scrollButton.style.display = 'block';
+        });
+
+        scrollButton.addEventListener('click', function() {
+            sliderSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollButton.style.display = 'none';
+            } else {
+                scrollButton.style.display = 'block';
+            }
+        });
+    });
+
+</script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+
+    });
+</script>
+</body>
+</html>
