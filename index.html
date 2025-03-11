@@ -94,7 +94,94 @@
         </div>
     </div>
     <!--End Slider-->
+    <!--Video Slider-->
+    <!-- Video Slider Section -->
+    <div class="video-slider-section">
+        <div class="container-fluid p-0">
+            <!-- Main Video Slider -->
+            <div class="swiper videoSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-caption">
+                            <h3>Video Title 1</h3>
+                            <p>Video description goes here</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/VIDEO-2.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-caption">
+                            <h3>Video Title 2</h3>
+                            <p>Video description goes here</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/VIDEO-3.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-caption">
+                            <h3>Video Title 3</h3>
+                            <p>Video description goes here</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/VIDEO-4.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-caption">
+                            <h3>Video Title 4</h3>
+                            <p>Video description goes here</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
 
+            <!-- Thumbnails Video Slider -->
+            <div class="swiper videoThumbnailSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <video muted loop>
+                                <source src="videos/VIDEO-1.mp4" type="video/mp4">
+                            </video>
+                            <div class="thumbnail-overlay">1</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <video muted loop>
+                                <source src="videos/VIDEO-2.mp4" type="video/mp4">
+                            </video>
+                            <div class="thumbnail-overlay">2</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <video muted loop>
+                                <source src="videos/VIDEO-3.mp4" type="video/mp4">
+                            </video>
+                            <div class="thumbnail-overlay">3</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <video muted loop>
+                                <source src="videos/VIDEO-4.mp4" type="video/mp4">
+                            </video>
+                            <div class="thumbnail-overlay">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Video Slider-->
 
 
 
@@ -158,6 +245,80 @@
         },
 
     });
+</script>
+<script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Khởi tạo thumbnail swiper
+        let videoThumbnailSwiper = new Swiper(".videoThumbnailSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 10
+                }
+            }
+        });
+
+        // Khởi tạo main video swiper
+        let videoSwiper = new Swiper(".videoSwiper", {
+            spaceBetween: 0,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: videoThumbnailSwiper,
+            },
+            on: {
+                slideChange: function() {
+                    // Dừng tất cả video
+                    let videos = document.querySelectorAll('.main-video');
+                    videos.forEach(video => {
+                        video.pause();
+                    });
+
+                    // Phát video hiện tại
+                    let currentVideo = videos[videoSwiper.activeIndex];
+                    if (currentVideo) {
+                        currentVideo.currentTime = 0;
+                        currentVideo.play();
+                    }
+                },
+                init: function() {
+                    // Phát video đầu tiên khi trang tải xong
+                    let firstVideo = document.querySelector('.main-video');
+                    if (firstVideo) {
+                        firstVideo.play();
+                    }
+                }
+            }
+        });
+
+        // Thêm sự kiện click vào thumbnail để chạy video
+        let thumbnailSlides = document.querySelectorAll('.videoThumbnailSwiper .swiper-slide');
+        thumbnailSlides.forEach((slide, index) => {
+            slide.addEventListener('click', function() {
+                videoSwiper.slideTo(index);
+            });
+        });
+    });
+</script>
 </script>
 </body>
 </html>
