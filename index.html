@@ -38,9 +38,10 @@
 
     <!-- Container chứa video và logo -->
     <div class="video-container">
-        <video id="intro-video" autoplay muted loop>
+        <video id="intro-video" autoplay loop>
             <source src="videos/VIDEO-1.mp4" type="video/mp4">
         </video>
+
 
         <!-- Logo đè lên video -->
         <div class="logo-overlay">
@@ -49,13 +50,23 @@
     </div>
 
     <span id="scroll-down" class="btn">
-        <img src="images/down.png" alt="Cuộn xuống" width="50" height="50">
+        <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 1000;">
     </span>
 
     <!--Slider-->
+    <!-- Full Screen Image Section -->
+    <div class="slider-section">
+        <!-- Ảnh nền full màn hình -->
+        <img src="images/img2.png" alt="Full Screen Image" class="img-fluid">
+
+        <!-- Mũi tên cuộn xuống -->
+        <span id="fullscreen-scroll-down" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>
+    </div>
 
     <!-- HTML cho slider -->
-    <div class="slider-section">
+    <!--<div class="slider-section">
         <div class="container">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
@@ -92,7 +103,7 @@
                 <div class="swiper-button-next"></div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!--End Slider-->
     <!--Video Slider-->
     <!-- Video Slider Section -->
@@ -102,44 +113,44 @@
             <div class="swiper videoSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <video class="main-video" muted loop>
-                            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+                        <video class="main-video" muted loop playsinline>
+                            <source src="videos/MUI-01.mp4" type="video/mp4">
                         </video>
-                        <div class="video-caption">
+                        <!--<div class="video-caption">
                             <h3>Video Title 1</h3>
                             <p>Video description goes here</p>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="swiper-slide">
                         <video class="main-video" muted loop>
-                            <source src="videos/VIDEO-2.mp4" type="video/mp4">
+                            <source src="videos/MUI-02.mp4" type="video/mp4">
                         </video>
-                        <div class="video-caption">
-                            <h3>Video Title 2</h3>
-                            <p>Video description goes here</p>
-                        </div>
                     </div>
                     <div class="swiper-slide">
                         <video class="main-video" muted loop>
-                            <source src="videos/VIDEO-3.mp4" type="video/mp4">
+                            <source src="videos/MUI-03.mp4" type="video/mp4">
                         </video>
-                        <div class="video-caption">
-                            <h3>Video Title 3</h3>
-                            <p>Video description goes here</p>
-                        </div>
                     </div>
                     <div class="swiper-slide">
                         <video class="main-video" muted loop>
-                            <source src="videos/VIDEO-4.mp4" type="video/mp4">
+                            <source src="videos/MUI-04.mp4" type="video/mp4">
                         </video>
-                        <div class="video-caption">
-                            <h3>Video Title 4</h3>
-                            <p>Video description goes here</p>
-                        </div>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-container video-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Các slide video ở đây -->
+                    </div>
+
+                    <!-- Nút tùy chỉnh -->
+                    <div class="swiper-button-prev custom-nav-btn" style="left: 10%">
+                        <img src="images/left.png" alt="Previous">
+                    </div>
+                    <div class="swiper-button-next custom-nav-btn" style="right: 10%">
+                        <img src="images/right.png" alt="Next">
+                    </div>
+                </div>
+
             </div>
 
             <!-- Thumbnails Video Slider -->
@@ -147,33 +158,25 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="video-thumbnail">
-                            <video muted loop>
-                                <source src="videos/VIDEO-1.mp4" type="video/mp4">
-                            </video>
+                            <img src="images/mui-1.png" class="img-fluid" alt="mũi-1"/>
                             <div class="thumbnail-overlay">1</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="video-thumbnail">
-                            <video muted loop>
-                                <source src="videos/VIDEO-2.mp4" type="video/mp4">
-                            </video>
+                            <img src="images/mui-2.png" class="img-fluid" alt="mũi-1"/>
                             <div class="thumbnail-overlay">2</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="video-thumbnail">
-                            <video muted loop>
-                                <source src="videos/VIDEO-3.mp4" type="video/mp4">
-                            </video>
+                            <img src="images/mui-3.png" class="img-fluid" alt="mũi-1"/>
                             <div class="thumbnail-overlay">3</div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="video-thumbnail">
-                            <video muted loop>
-                                <source src="videos/VIDEO-4.mp4" type="video/mp4">
-                            </video>
+                            <img src="images/mui-4.png" class="img-fluid" alt="mũi-1"/>
                             <div class="thumbnail-overlay">4</div>
                         </div>
                     </div>
@@ -182,7 +185,16 @@
         </div>
     </div>
     <!--End Video Slider-->
+    <!-- Full Screen Image Section -->
+    <div class="section-image3">
+        <!-- Ảnh nền full màn hình -->
+        <img src="images/img3.png" alt="Full Screen Image" class="img-fluid">
 
+        <!-- Mũi tên cuộn xuống -->
+        <!--<span id="" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>-->
+    </div>
 
 
     <div class="content">
@@ -190,6 +202,16 @@
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
             <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode"></spline-viewer>
         </div>
+    </div>
+
+    <div class="section-image4">
+        <!-- Ảnh nền full màn hình -->
+        <img src="images/img4.png" alt="Full Screen Image" class="img-fluid">
+
+        <!-- Mũi tên cuộn xuống -->
+        <!--<span id="" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>-->
     </div>
 </div>
 
@@ -201,6 +223,7 @@
         const video = document.getElementById('intro-video');
         const scrollButton = document.getElementById('scroll-down');
         const sliderSection = document.querySelector('.slider-section'); // Đặt class này cho phần slider ảnh
+
 
         video.addEventListener('play', function() {
             scrollButton.style.display = 'block';
@@ -246,8 +269,7 @@
 
     });
 </script>
-<script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Khởi tạo thumbnail swiper
@@ -257,17 +279,14 @@
             freeMode: true,
             watchSlidesProgress: true,
             breakpoints: {
-                // when window width is >= 320px
                 320: {
                     slidesPerView: 2,
                     spaceBetween: 10
                 },
-                // when window width is >= 480px
                 480: {
                     slidesPerView: 3,
                     spaceBetween: 10
                 },
-                // when window width is >= 768px
                 768: {
                     slidesPerView: 4,
                     spaceBetween: 10
@@ -297,14 +316,35 @@
                     let currentVideo = videos[videoSwiper.activeIndex];
                     if (currentVideo) {
                         currentVideo.currentTime = 0;
-                        currentVideo.play();
+                        // Thêm dòng này để đảm bảo video có thể phát
+                        currentVideo.muted = true;
+                        let playPromise = currentVideo.play();
+
+                        if (playPromise !== undefined) {
+                            playPromise.then(_ => {
+                                // Phát thành công
+                            })
+                                .catch(error => {
+                                    console.log('Không thể phát video: ', error);
+                                });
+                        }
                     }
                 },
                 init: function() {
                     // Phát video đầu tiên khi trang tải xong
                     let firstVideo = document.querySelector('.main-video');
                     if (firstVideo) {
-                        firstVideo.play();
+                        firstVideo.muted = true;
+                        let playPromise = firstVideo.play();
+
+                        if (playPromise !== undefined) {
+                            playPromise.then(_ => {
+                                // Phát thành công
+                            })
+                                .catch(error => {
+                                    console.log('Không thể phát video: ', error);
+                                });
+                        }
                     }
                 }
             }
@@ -318,7 +358,16 @@
             });
         });
     });
+
 </script>
+<script>
+    // JavaScript cho mũi tên cuộn xuống ở phần fullscreen
+    document.getElementById('fullscreen-scroll-down').addEventListener('click', function() {
+        const nextSection = document.querySelector('.video-slider-section');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 </script>
 </body>
 </html>

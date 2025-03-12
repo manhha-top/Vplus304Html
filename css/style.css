@@ -30,6 +30,14 @@
     display: none;
     z-index: 1000;
 }
+#fullscreen-scroll-down {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 1000;
+}
 
 .content {
     padding-top: 50px;
@@ -62,91 +70,63 @@
     width: 100%;
 }
 
+/*Anh Sau Video Intro*/
+/* Hiệu ứng bounce cho mũi tên */
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+
 /*Video Slider*/
-/* Video Slider Styles */
+/* Thêm vào file CSS của bạn */
 .video-slider-section {
-    position: relative;
-    width: 100%;
     height: 100vh;
+    position: relative;
     background-color: #000;
 }
 
-/* Main Video Slider */
 .videoSwiper {
-    width: 100%;
     height: 85vh;
+    width: 100%;
 }
 
 .videoSwiper .swiper-slide {
-    position: relative;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
 }
 
-.videoSwiper video.main-video {
+.main-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    display: block;
+    object-fit: contain;
+    max-height: 85vh;
 }
 
-.video-caption {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    color: #fff;
-    max-width: 70%;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    z-index: 2;
-}
-
-.video-caption h3 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.video-caption p {
-    font-size: 1rem;
-}
-
-/* Nav Buttons Styling */
-.videoSwiper .swiper-button-next,
-.videoSwiper .swiper-button-prev {
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.3);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-.videoSwiper .swiper-button-next:after,
-.videoSwiper .swiper-button-prev:after {
-    font-size: 18px;
-}
-
-/* Thumbnails Slider */
 .videoThumbnailSwiper {
-    width: 100%;
     height: 15vh;
-    box-sizing: border-box;
     padding: 10px 0;
-    background-color: #1a1a1a;
-}
-
-.videoThumbnailSwiper .swiper-slide {
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.videoThumbnailSwiper .swiper-slide-thumb-active {
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .video-thumbnail {
-    position: relative;
-    width: 100%;
     height: 100%;
-    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
 .video-thumbnail video {
@@ -154,52 +134,22 @@
     height: 100%;
     object-fit: cover;
 }
-
-.thumbnail-overlay {
+/* Style cho nút tùy chỉnh */
+.custom-nav-btn {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 14px;
-    padding: 2px 8px;
-    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .videoSwiper {
-        height: 80vh;
-    }
-
-    .videoThumbnailSwiper {
-        height: 20vh;
-    }
-
-    .video-caption {
-        bottom: 20px;
-        left: 20px;
-        max-width: 90%;
-    }
-
-    .video-caption h3 {
-        font-size: 1.5rem;
-    }
+.custom-nav-btn img {
+    width: 80px;
+    height: 80px;
 }
 
-@media (max-width: 576px) {
-    .video-caption h3 {
-        font-size: 1.2rem;
-    }
-
-    .video-caption p {
-        font-size: 0.9rem;
-    }
-
-    .videoSwiper .swiper-button-next,
-    .videoSwiper .swiper-button-prev {
-        width: 40px;
-        height: 40px;
-    }
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
 }
 
