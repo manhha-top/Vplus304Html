@@ -153,3 +153,221 @@
     display: none;
 }
 
+/*Slider 8 anh*/
+/* Fullscreen Image Carousel Styles - Fixed Heights Version */
+.fullscreen-carousel-section {
+    position: relative;
+    width: 100%;
+    /* Fixed height based on viewport sizes */
+    height: 900px; /* Default fixed height */
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+    .fullscreen-carousel-section {
+        height: 600px;
+    }
+}
+
+@media (max-width: 992px) {
+    .fullscreen-carousel-section {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fullscreen-carousel-section {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .fullscreen-carousel-section {
+        height: 350px;
+    }
+}
+
+/* Carousel container and item styles */
+#imageCarousel,
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+    width: 100%;
+}
+
+/* Background image with fixed size */
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+    transform: scale(1.1); /* Compensate for blur edges */
+    opacity: 0.7;
+}
+
+/* Dark overlay for better contrast */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Content positioning */
+.carousel-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glowing frame for main image */
+.glowing-frame {
+    position: relative;
+    width: auto;
+    padding: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+    transition: box-shadow 0.3s ease;
+}
+
+.glowing-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main image with fixed height */
+.main-carousel-image {
+    display: block;
+    height: 700px; /* Fixed height for main image */
+    width: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Media queries for the main image height */
+@media (max-width: 1200px) {
+    .main-carousel-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-carousel-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-carousel-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-carousel-image {
+        height: 200px;
+    }
+
+    .glowing-frame {
+        padding: 10px;
+    }
+}
+
+/* Custom carousel controls */
+/*.custom-carousel-control {*/
+/*    !*width: 80px !important;*/
+/*    height: 80px !important;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*    border-radius: 50%;*!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    position: absolute;*/
+/*    z-index: 5;*/
+/*    opacity: 0.8;*/
+/*    margin: 0 20px;*/
+/*}*/
+
+.carousel-control-prev {
+    left: 10px;
+}
+
+.carousel-control-next {
+    right: 10px;
+}
+
+/*.custom-carousel-control:hover {*/
+/*    background: rgba(0, 0, 0, 0.8);*/
+/*    opacity: 1;*/
+/*}*/
+
+.custom-arrow {
+    width: 60px;
+    height: 60px;
+}
+
+/* Custom indicators */
+.carousel-indicators {
+    bottom: 20px;
+}
+
+.carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    margin: 0 5px !important;
+}
+
+.carousel-indicators button.active {
+    background-color: #fff !important;
+}
+
+/* Hover effect on the glowing frame */
+.carousel-item.active .glowing-frame:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .custom-carousel-control {
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 10px;
+    }
+
+    .custom-arrow {
+        width: 20px;
+        height: 20px;
+    }
+
+    .carousel-indicators {
+        bottom: 10px;
+    }
+
+    .carousel-indicators button {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 3px !important;
+    }
+}
