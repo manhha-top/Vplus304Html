@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bài Viết Longform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles1.css">
+</head>
+<body class="no-overflow">
+<!-- Section 1: Video Intro -->
+<section id="intro" class="video-section">
+    <!-- Logo Brand -->
+    <div class="brand-logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Brand Logo">
+        </a>
+    </div>
+    <div class="video-container">
+        <!-- Thêm preload="auto" và poster để đảm bảo hiệu suất tốt -->
+        <video id="intro-video" autoplay muted loop playsinline preload="auto" poster="images/poster.jpg">
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+
+
+        </video>
+    </div>
+    <div class="scroll-arrow">
+        <a href="#section2">
+            <img src="images/down.png" alt="Scroll Down" class="bounce" >
+        </a>
+    </div>
+</section>
+
+<!-- Section 2: Nội dung tiếp theo -->
+<section id="section2" class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2>Section 2: Nội Dung Chính</h2>
+                <p>Nội dung bài viết của bạn bắt đầu từ đây...</p>
+                <!-- Thêm nội dung longform ở đây -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    // File: script.js
+    $(document).ready(function() {
+        // Xử lý sự kiện click vào nút mũi tên - giữ nguyên chức năng này
+        $('.scroll-arrow a').on('click', function(event) {
+            // Ngăn hành vi mặc định của thẻ a
+            event.preventDefault();
+
+            // Lấy ID của phần cần cuộn đến
+            var target = $(this).attr('href');
+
+            // Thực hiện cuộn mượt đến phần đó
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 1000);
+        });
+
+        // Xử lý autoplay video, đặc biệt quan trọng cho Safari và iOS
+        function handleVideoAutoplay() {
+            var video = document.getElementById('intro-video');
+
+            // Đảm bảo video được tải và sẵn sàng
+            video.load();
+
+            // Đăng ký sự kiện loadedmetadata
+            video.addEventListener('loadedmetadata', function() {
+                // Thử phát video
+                playVideo();
+            });
+
+            // Đăng ký sự kiện canplaythrough
+            video.addEventListener('canplaythrough', function() {
+                // Thử phát video một lần nữa
+                playVideo();
+            });
+
+            function playVideo() {
+                var playPromise = video.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        // Autoplay thành công
+                        console.log('Video autoplay successful');
+                    }).catch(function(error) {
+                        // Autoplay thất bại
+                        console.log('Video autoplay failed: ', error);
+
+                        // Hiển thị nút play thay thế
+                        if (!$('.play-btn').length) {
+                            $('.video-overlay').append('<button class="play-btn">Phát Video</button>');
+
+                            $('.play-btn').on('click', function() {
+                                video.play();
+                                $(this).fadeOut(300, function() {
+                                    $(this).remove();
+                                });
+                            });
+                        }
+                    });
+                }
+            }
+
+            // Gọi đầu tiên
+            playVideo();
+        }
+
+        // Khởi tạo xử lý video
+        handleVideoAutoplay();
+
+        // Xử lý việc click vào nút play trên iOS
+        $(document).on('click touchstart', function() {
+            var video = document.getElementById('intro-video');
+            if (video.paused) {
+                video.play();
+            }
+        });
+
+        // Xử lý vấn đề với thanh địa chỉ trên trình duyệt di động
+        function adjustHeight() {
+            // Điều chỉnh chiều cao cho iOS
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            $('.video-section').css('height', `calc(var(--vh, 1vh) * 100)`);
+        }
+
+        // Gọi ngay khi tải và khi resize
+        adjustHeight();
+        $(window).on('resize', adjustHeight);
+        $(window).on('orientationchange', adjustHeight);
+    });
+
+</script>
+</body>
+</html>
