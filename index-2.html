@@ -33,17 +33,43 @@
 </section>
 
 <!-- Section 2: Nội dung tiếp theo -->
-<section id="section2" class="content-section">
+<!--<section id="section2" class="content-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h2>Section 2: Nội Dung Chính</h2>
                 <p>Nội dung bài viết của bạn bắt đầu từ đây...</p>
+                &lt;!&ndash; Thêm nội dung longform ở đây &ndash;&gt;
+            </div>
+        </div>
+    </div>
+</section>-->
+<!-- Section 2: Gallery Section -->
+<section id="section2" class="gallery-section">
+    <div class="container">
+        <img src="images/Asset2-1.png">
+    </div>
+    <!-- Đảm bảo mũi tên trỏ đến section3 -->
+    <div class="scroll-arrow">
+        <a href="#section3">
+            <img src="images/arrow-down.png" alt="Scroll Down" class="bounce">
+        </a>
+    </div>
+</section>
+
+<!-- Section 3: Bổ sung thêm section này để đảm bảo mũi tên hoạt động -->
+<section id="section3" class="content-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2>Section 3: Nội Dung Chi Tiết</h2>
+                <p>Phần này chứa các thông tin chi tiết về bài viết của bạn...</p>
                 <!-- Thêm nội dung longform ở đây -->
             </div>
         </div>
     </div>
 </section>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -139,6 +165,74 @@
         $(window).on('orientationchange', adjustHeight);
     });
 
+</script>
+<!--Section 2-->
+<script>
+    // Animation for Gallery Items
+    function animateGalleryItems() {
+        // Sử dụng IntersectionObserver để kích hoạt animation khi các elements xuất hiện trong viewport
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Lấy delay từ data attribute
+                        const delay = entry.target.getAttribute('data-delay') || 0;
+
+                        // Thêm class animate sau delay đã xác định
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, parseInt(delay));
+
+                        // Ngừng theo dõi khi đã animation
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2, // Kích hoạt khi 20% của phần tử xuất hiện
+                rootMargin: '0px 0px -100px 0px' // Kích hoạt sớm hơn một chút
+            });
+
+            // Theo dõi tất cả các gallery items
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                observer.observe(item);
+            });
+        } else {
+            // Fallback cho trình duyệt không hỗ trợ IntersectionObserver
+            setTimeout(() => {
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    const delay = item.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, 500 + parseInt(delay));
+                });
+            }, 300);
+        }
+    }
+
+    // Thêm vào đoạn code document.ready hiện tại
+    $(document).ready(function() {
+        // Giữ nguyên các code đã có trước đó
+
+        // Xử lý autoplay video
+        handleVideoAutoplay();
+
+        // Xử lý cuộn đến section khi click vào nút mũi tên
+        $('.scroll-arrow a').on('click', function(event) {
+            event.preventDefault();
+            var target = $(this).attr('href');
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 1000);
+        });
+
+        // Kiểm tra nếu đã vào section gallery và kích hoạt animation
+        animateGalleryItems();
+
+        // Xử lý animation khi cuộn trang
+        $(window).on('scroll', function() {
+            animateGalleryItems();
+        });
+    });
 </script>
 </body>
 </html>
