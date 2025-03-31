@@ -41,8 +41,14 @@
 <!--        <video id="intro-video" autoplay loop>
             <source src="videos/VIDEO-1.mp4" type="video/mp4">
         </video>-->
-        <video id="intro-video" autoplay muted loop playsinline>
+        <!--<video id="intro-video" autoplay muted loop playsinline preload="auto">
             <source src="videos/VIDEO-1.mp4" type="video/mp4">
+        </video>-->
+        <!-- Thêm preload="auto" và poster để đảm bảo hiệu suất tốt -->
+        <video id="intro-video" autoplay muted loop playsinline preload="auto">
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+
+
         </video>
 
         <!-- Logo đè lên video -->
@@ -57,10 +63,10 @@
 
     <!--Slider-->
     <!-- Full Screen Image Section -->
-    <div class="slider-section">
+    <div class="slider-section text-center p-5">
         <!-- Ảnh nền full màn hình -->
-        <img src="images/img2.png" alt="Full Screen Image" class="img-fluid">
-
+        <img src="images/Asset2-1.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
+        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
         <!-- Mũi tên cuộn xuống -->
         <span id="fullscreen-scroll-down" class="btn">
             <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
@@ -191,7 +197,7 @@
     <div class="section-image3">
         <!-- Ảnh nền full màn hình -->
         <img src="images/img3.png" alt="Full Screen Image" class="img-fluid">
-
+        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid">
         <!-- Mũi tên cuộn xuống -->
         <!--<span id="" class="btn">
             <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
@@ -199,12 +205,12 @@
     </div>
 
 
-    <div class="content">
+<!--    <div class="content">
         <div class="container">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
             <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode"></spline-viewer>
         </div>
-    </div>
+    </div>-->
 
     <div class="section-image4">
         <!-- Ảnh nền full màn hình -->
