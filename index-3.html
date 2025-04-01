@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vietnamplus</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <link href="css/style3.css" rel="stylesheet">
+</head>
+<body>
+<!-- Section 1: Video Intro -->
+<section id="intro" class="video-section">
+    <!-- Logo Brand -->
+    <div class="brand-logo">
+        <a href="index-3.html">
+            <img src="images/logo.png" alt="logo">
+        </a>
+    </div>
+
+    <div class="video-container">
+        <video id="intro-video" autoplay muted loop playsinline preload="auto" poster="">
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+            <!--<source src="video/intro.webm" type="video/webm">-->
+        </video>
+    </div>
+
+    <!-- Nút cuộn xuống ở section 1 -->
+    <div class="scroll-arrow">
+        <a href="#section2">
+            <img src="images/down.png" alt="Scroll Down" class="bounce">
+        </a>
+    </div>
+</section>
+
+<!-- Section 2: Section -->
+<section id="section2" class="gallery-section">
+    <div class="container">
+        <!-- Ảnh đầu tiên ở một row riêng -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="fade-image first">
+                    <img src="images/Asset2-1.png" alt="Image 1" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <!-- Ảnh thứ hai ở một row riêng -->
+        <div class="row">
+            <div class="col-12">
+                <div class="fade-image second">
+                    <img src="images/Asset2-4.png" alt="Image 2" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút cuộn xuống ở section 2 -->
+<!--    <div class="scroll-arrow">
+        <a href="#section3">
+            <img src="images/down.png" alt="Scroll Down" class="bounce">
+        </a>
+    </div>-->
+
+</section>
+<!--Section 3: Video slider-->
+<section id="section3" class="video-section">
+    <!-- Main Video Slider -->
+    <div class="swiper videoSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img  src="images/MUI-01.gif" class="img-fluid" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-02.gif" class="img-fluid" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-03.gif" class="img-fluid" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-04.gif" class="img-fluid" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-05.gif" class="img-fluid" alt=""/>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="thumb-container">
+        <div class="swiper thumbSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/mui-1.png" alt="Thumbnail 1"></div>
+                <div class="swiper-slide"><img src="images/mui-2.png" alt="Thumbnail 2"></div>
+                <div class="swiper-slide"><img src="images/mui-3.png" alt="Thumbnail 3"></div>
+                <div class="swiper-slide"><img src="images/mui-4.png" alt="Thumbnail 4"></div>
+                <div class="swiper-slide"><img src="images/mui-5.png" alt="Thumbnail 5"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function() {
+        // Xử lý autoplay video
+        var video = document.getElementById('intro-video');
+        if(video) {
+            video.play().catch(function(error) {
+                console.log("Video autoplay prevented:", error);
+            });
+        }
+
+        // Xử lý smooth scrolling khi click vào mũi tên
+        $('.scroll-arrow a').on('click', function(event) {
+            event.preventDefault();
+            var target = $(this).attr('href');
+
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 1000);
+        });
+    });
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<!--Script Cho slide Video-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var thumbSwiper = new Swiper(".thumbSwiper", {
+            slidesPerView: 5,
+            spaceBetween: 10,
+            watchSlidesProgress: true,
+            slideToClickedSlide: true
+        });
+
+        var videoSwiper = new Swiper(".videoSwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: thumbSwiper,
+            },
+            on: {
+                slideChange: function() {
+                    document.querySelectorAll('.videoSwiper video').forEach(video => video.pause());
+                    setTimeout(() => {
+                        document.querySelector('.videoSwiper .swiper-slide-active video').play();
+                    }, 100);
+                }
+            }
+        });
+
+        // Cập nhật swiper khi resize window
+        window.addEventListener('resize', function() {
+            thumbSwiper.update();
+            videoSwiper.update();
+        });
+    });
+
+</script>
+
+</body>
+</html>

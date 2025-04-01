@@ -748,24 +748,49 @@
     background: url("../images/bg2.png") no-repeat center center;
     background-size: cover;
 }
-@-webkit-keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+/* Hiệu ứng fade chỉ dùng CSS */
+
+.gallery-section {
+    min-height: 100vh;
+    /*background: url('images/gallery-bg.jpg') no-repeat center center;*/
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+    position: relative;
 }
 
 @keyframes fadeIn {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+.fade-image {
+    opacity: 0;
+    transform: translateY(30px);
+}
 
+/* Animation kích hoạt khi section2 là target */
+#section2:target .fade-image.first {
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.2s;
 }
-.animated {
-    -webkit-animation-duration: 5s;
-    animation-duration: 5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+
+#section2:target .fade-image.second {
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
 }
+
+/* Cuộn trang mượt mà */
+html {
+    scroll-behavior: smooth;
+}
+
+

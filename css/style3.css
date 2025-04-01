@@ -1,0 +1,271 @@
+/* Video Section Styles */
+.video-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.video-container video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    background: #000;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.content-box {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.content-box h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.content-box .lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Logo styles */
+.brand-logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+}
+
+.brand-logo img {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+    min-height: 100vh;
+    background: url('../images/bg2.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+    position: relative;
+}
+
+/* Overlay cho background gallery */
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+    z-index: 0;
+}
+
+.gallery-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-image {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-image.first {
+    animation-delay: 0.2s;
+}
+
+.fade-image.second {
+    animation-delay: 0.5s;
+}
+
+/* Scroll Arrow Styles (chung cho cả hai section) */
+.scroll-arrow {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.scroll-arrow img {
+    width: 80px;
+    height: auto;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Cuộn trang mượt mà */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .content-box h1 {
+        font-size: 2.5rem;
+    }
+
+    .content-box .lead {
+        font-size: 1.2rem;
+    }
+
+    .brand-logo {
+        top: 20px;
+        left: 20px;
+    }
+
+    .brand-logo img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-box h1 {
+        font-size: 2rem;
+    }
+
+    .content-box .lead {
+        font-size: 1rem;
+    }
+
+    .brand-logo img {
+        height: 40px;
+    }
+}
+/* Video Slider Swiper*/
+
+.video-section {
+    height: 100vh;
+    background: url('../images/bg2.png');
+    display: flex;
+    flex-direction: column;
+}
+
+.videoSwiper {
+    flex: 1;
+    width: 100%;
+}
+
+.videoSwiper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /*background: #000;*/
+}
+
+.thumb-container {
+    height: 100px;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbSwiper {
+    width: 80%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.thumbSwiper .swiper-slide {
+    width: 120px;
+    height: 70px;
+    opacity: 0.6;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.thumbSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: #fff;
+}
+
+.thumbSwiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .thumb-container {
+        height: 80px;
+    }
+
+    .thumbSwiper .swiper-slide {
+        width: 80px;
+        height: 50px;
+    }
+}
+
+
+/* End Video slider CSS */
+

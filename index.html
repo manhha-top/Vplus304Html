@@ -64,9 +64,31 @@
     <!--Slider-->
     <!-- Full Screen Image Section -->
     <div class="slider-section text-center p-5">
+        <section id="section2" class="gallery-section">
+            <div class="container">
+                <!-- Ảnh đầu tiên ở một row riêng -->
+
+                        <div class="fade-image first">
+                            <img src="images/Asset2-1.png" alt="Image 1" class="img-fluid">
+                        </div>
+
+                <!-- Ảnh thứ hai ở một row riêng -->
+
+                        <div class="fade-image second">
+                            <img src="images/Asset2-4.png" alt="Image 2" class="img-fluid">
+                        </div>
+            </div>
+
+        </section>
+<!--        <div class="scroll-arrow">
+            <a href="#section3">
+                <img src="images/down.png" alt="Scroll Down" class="bounce">
+            </a>
+        </div>-->
+
         <!-- Ảnh nền full màn hình -->
-        <img src="images/Asset2-1.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
-        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
+<!--        <img src="images/Asset2-1.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
+        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid fadeIn animated">-->
         <!-- Mũi tên cuộn xuống -->
         <span id="fullscreen-scroll-down" class="btn">
             <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
@@ -122,7 +144,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <video class="main-video" muted loop playsinline>
-                            <source src="videos/MUI-01.mp4" type="video/mp4">
+                            <source src="images/MUI-01.mp4" type="video/mp4">
                         </video>
                         <!--<div class="video-caption">
                             <h3>Video Title 1</h3>
@@ -197,7 +219,6 @@
     <div class="section-image3">
         <!-- Ảnh nền full màn hình -->
         <img src="images/img3.png" alt="Full Screen Image" class="img-fluid">
-        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid">
         <!-- Mũi tên cuộn xuống -->
         <!--<span id="" class="btn">
             <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
@@ -852,6 +873,29 @@
         }
     });
 </script>
+<script>
+    $(document).ready(function() {
+        // Xử lý fade animation khi cuộn
+        $(window).scroll(function() {
+            var windowBottom = $(window).scrollTop() + $(window).height();
+            var sectionTop = $('#section2').offset().top;
 
+            if (windowBottom > sectionTop + 100) {
+                $('.fade-image').each(function() {
+                    var delay = $(this).data('delay') || 0;
+                    var $this = $(this);
+
+                    setTimeout(function() {
+                        $this.addClass('visible');
+                    }, delay);
+                });
+            }
+        });
+
+        // Kiểm tra ngay khi tải trang
+        $(window).trigger('scroll');
+    });
+
+</script>
 </body>
 </html>
