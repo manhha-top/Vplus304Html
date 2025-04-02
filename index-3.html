@@ -8,6 +8,49 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
     <link href="css/style3.css" rel="stylesheet">
+    <!--Script Section 5-->
+    <script>
+        // Load ngay khi trang bắt đầu
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tạo script tag
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = 'https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js';
+
+            // Chèn script vào head
+            document.head.appendChild(script);
+
+            // Sau khi script load xong
+            script.onload = function() {
+                // Tạo spline-viewer trong div ẩn
+                var splineViewer = document.createElement('spline-viewer');
+                splineViewer.setAttribute('loading-anim-type', 'spinner-small-light');
+                splineViewer.setAttribute('url', 'https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode');
+
+                // Thêm vào div ẩn để load trước
+                document.getElementById('hidden-loader').appendChild(splineViewer);
+            };
+
+            // Khi mở modal
+            document.getElementById('gameModal').addEventListener('show.bs.modal', function() {
+                var splineViewer = document.querySelector('spline-viewer');
+                if (splineViewer) {
+                    // Di chuyển spline viewer từ div ẩn vào modal
+                    document.getElementById('spline-container').appendChild(splineViewer);
+                }
+            });
+
+            // Khi đóng modal
+            document.getElementById('gameModal').addEventListener('hidden.bs.modal', function() {
+                var splineViewer = document.querySelector('spline-viewer');
+                if (splineViewer) {
+                    // Đưa spline viewer về div ẩn
+                    document.getElementById('hidden-loader').appendChild(splineViewer);
+                }
+            });
+        });
+
+    </script>
 </head>
 <body>
 <!-- Section 1: Video Intro -->
@@ -71,18 +114,49 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img  src="images/MUI-01.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 4 (Binh đoàn Cửu Long)</h3>
+                        <p>Thành lập ngày 20/7/1974. Quân đoàn 4 được giao nhiệm vụ tiến công từ hướng Đông và Đông Nam Sài Gòn, nhằm đạt các mục tiêu: Tạo thế bao vây chiến lược từ hướng Đông và Đông Nam; đánh chiếm các cứ điểm then chốt gồm Căn cứ Biên Hòa, Tổng kho Long Bình, Khu vực Thủ Đức; Thọc sâu vào trung tâm Sài Gòn; Phối hợp hiệp đồng binh chủng và hỗ trợ quần chúng; Tạo áp lực tâm lý và chiến lược.</p>
+                    </div>
+                </div>
             </div>
             <div class="swiper-slide">
                 <img  src="images/MUI-02.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 3 (Binh đoàn Tây Nguyên)</h3>
+                        <p>Thành lập ngày 26/3/1975. Quân đoàn 3 được giao nhiệm vụ tiến công từ hướng Tây Bắc Sài Gòn, nhằm đạt các mục tiêu quan trọng: Tạo thế bao vây chiến lược từ Tây Bắc; Đánh chiếm chi khu Hậu Nghĩa, Đức Hòa, và các vị trí trên tuyến đường tiến vào nội đô; Phối hợp hiệp đồng binh chủng; Tạo áp lực chiến lược và tâm lý.</p>
+                    </div>
+                </div>
             </div>
             <div class="swiper-slide">
                 <img  src="images/MUI-03.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 2 (Binh đoàn Hương Giang)</h3>
+                        <p>Thành lập ngày 17/5/1974. Quân đoàn 2 được giao nhiệm vụ tiến công từ hướng Đông Bắc Sài Gòn, nhằm: Tạo thế bao vây chiến lược từ Đông Bắc; Đánh chiếm các cứ điểm Căn cứ Lộc Ninh, Chơn Thành và Đồng Xoài, Cầu Bình Triệu;  Thọc sâu vào trung tâm Sài Gòn. Một trong những nhiệm vụ nổi bật của Quân đoàn 2 là tham gia đánh chiếm Dinh Độc Lập. Xe tăng của Quân đoàn 2, phối hợp với Quân đoàn 1, đã húc đổ cổng Dinh Độc Lập vào trưa ngày 30/4/1975, đánh dấu thời khắc lịch sử của chiến dịch.</p>
+
+                    </div>
+                </div>
             </div>
             <div class="swiper-slide">
                 <img  src="images/MUI-04.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 1 (Binh đoàn Quyết Thắng)</h3>
+                        <p>Thành lập ngày 24/10/1973. Quân đoàn 1 được giao nhiệm vụ tiến công từ hướng Bắc Sài Gòn, nhằm đạt mục tiêu: Tạo thế bao vây chiến lược từ hướng Bắc; Đánh chiếm các cứ điểm then chốt gồm Căn cứ Lai Khê, các vị trí phòng thủ Bến Cát và Hóc Môn, Cầu Tham Rễ; Thọc sâu vào trung tâm Sài Gòn. Một trong những nhiệm vụ nổi bật của Quân đoàn 1 là tham gia đánh chiếm Dinh Độc Lập cùng Quân đoàn 2.</p>
+                    </div>
+                </div>
             </div>
             <div class="swiper-slide">
                 <img  src="images/MUI-05.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Đoàn 232 (Binh đoàn cánh Tây Nam)</h3>
+                        <p>Được tái tổ chức và tăng cường thành một lực lượng chủ lực cấp chiến dịch vào tháng 1/1975. Đoàn 232 được giao nhiệm vụ tiến công từ hướng Tây và Tây Nam Sài Gòn, nhằm: Tạo thế bao vây chiến lược từ Tây và Tây Nam; Đánh chiếm các cứ điểm then chốt gồm Tân An (Long An), Bến Lức, Nhà Bè, Biệt khu Thủ đô, Tổng Nha Cảnh sát; Thọc sâu và hợp điểm tại trung tâm Sài Gòn; Phối hợp với quần chúng và lực lượng đặc công; Tạo áp lực chiến lược và tâm lý</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="swiper-button-next"></div>
@@ -102,8 +176,128 @@
         </div>
     </div>
 </section>
+<section id="section4" class="fade-image-section">
+    <div class="image-container">
+        <img src="images/img3.png" alt="Full Screen Image" class="fade-in-image img-fluid">
+    </div>
+</section>
+
+<!--Popup games-->
+<section id="section5" class="experience-section">
+    <div class="experience-content">
+        <h2>Sẵn sàng cho trải nghiệm mới?</h2>
+        <button type="button" class="btn btn-experience" data-bs-toggle="modal" data-bs-target="#gameModal">
+            Trải Nghiệm
+        </button>
+    </div>
+
+    <!-- Div ẩn để load sẵn Spline -->
+    <div id="hidden-loader" style="position: absolute; visibility: hidden; width: 0; height: 0; overflow: hidden;"></div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gameModalLabel">Trải nghiệm lái xe tăng 3D</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0" id="spline-container">
+                    <!-- Spline se được move vào đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Section 6-->
+<section id="section6" class="building-section">
+    <div class="building-container">
+        <img src="images/toanha.png" alt="Building" class="building-image">
+
+        <!-- Các nút tương tác với hiệu ứng nhấp nháy mạnh -->
+        <button class="hotspot hotspot-1" data-bs-toggle="modal" data-bs-target="#mediaModal1">
+            <i class="fas fa-video"></i>
+        </button>
+
+        <button class="hotspot hotspot-2" data-bs-toggle="modal" data-bs-target="#mediaModal2">
+            <i class="fas fa-music"></i>
+        </button>
+
+        <button class="hotspot hotspot-3" data-bs-toggle="modal" data-bs-target="#mediaModal3">
+            <i class="fas fa-film"></i>
+        </button>
+
+        <button class="hotspot hotspot-4" data-bs-toggle="modal" data-bs-target="#mediaModal4">
+            <i class="fas fa-headphones"></i>
+        </button>
+    </div>
+
+    <!-- Media Modal 1 -->
+    <div class="modal fade" id="mediaModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Video Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <video class="media-player" controls src="media/video1.mp4"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Modal 2 -->
+    <div class="modal fade" id="mediaModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Audio Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <audio class="media-player" controls src="media/audio1.mp3"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Modal 3 -->
+    <div class="modal fade" id="mediaModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Building History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <video class="media-player" controls src="media/video2.mp4"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Media Modal 4 -->
+    <div class="modal fade" id="mediaModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sound Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <audio class="media-player" controls src="media/audio2.mp3"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--End section 6-->
 
 
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
         // Xử lý autoplay video
@@ -163,6 +357,55 @@
     });
 
 </script>
+<!--Script Section 4-->
+<script>
+    // Theo dõi khi cuộn đến section 4
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const image = entry.target.querySelector('.fade-in-image');
+                image.classList.add('visible');
+                observer.unobserve(entry.target); // Chỉ kích hoạt một lần
+            }
+        });
+    }, {threshold: 0.3}); // Kích hoạt khi 30% section hiển thị
 
+    // Kích hoạt observer khi trang tải xong
+    document.addEventListener('DOMContentLoaded', () => {
+        const section4 = document.getElementById('section4');
+        if (section4) observer.observe(section4);
+    });
+
+</script>
+
+<!--Script section 6-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Thêm lớp pulse thứ ba cho hiệu ứng mạnh hơn
+        document.querySelectorAll('.hotspot').forEach(hotspot => {
+            const pulseElement = document.createElement('span');
+            pulseElement.className = 'third-pulse';
+            hotspot.appendChild(pulseElement);
+        });
+
+        // Xử lý media autoplay
+        const mediaModals = document.querySelectorAll('.modal');
+        mediaModals.forEach(modal => {
+            modal.addEventListener('shown.bs.modal', function() {
+                const mediaPlayer = this.querySelector('.media-player');
+                if (mediaPlayer) mediaPlayer.play();
+            });
+
+            modal.addEventListener('hidden.bs.modal', function() {
+                const mediaPlayer = this.querySelector('.media-player');
+                if (mediaPlayer) {
+                    mediaPlayer.pause();
+                    mediaPlayer.currentTime = 0;
+                }
+            });
+        });
+    });
+
+</script>
 </body>
 </html>

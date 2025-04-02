@@ -265,7 +265,422 @@ html {
         height: 50px;
     }
 }
+/* Text box */
+/* Text Box Styles - Base */
+.text-box {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 700px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 20px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+}
+
+.text-content {
+    height: 100%;
+    padding-right: 10px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.text-content h3 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.text-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Custom scrollbar */
+.text-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.text-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.text-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+/* Responsive styles điều chỉnh chi tiết */
+@media (max-width: 1600px) {
+    .text-box {
+        width: 600px;
+        height: 280px;
+    }
+}
+
+/* Screens 1440p */
+@media (max-width: 1440px) {
+    .text-box {
+        width: 550px;
+        height: 260px;
+    }
+}
+
+/* Laptop lớn - 1366x768 */
+@media (max-width: 1366px) {
+    .text-box {
+        width: 480px;
+        height: 220px;
+        bottom: 25px;
+        right: 25px;
+        padding: 18px;
+    }
+
+    .text-content h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    .text-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+}
+
+/* Laptop nhỏ và màn hình HD */
+@media (max-width: 1280px) {
+    .text-box {
+        width: 450px;
+        height: 200px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Tablet lớn và laptop nhỏ */
+@media (max-width: 992px) {
+    .text-box {
+        width: 400px;
+        height: 200px;
+        padding: 15px;
+    }
+
+    .text-content h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .text-content p {
+        font-size: 13px;
+    }
+}
+
+/* Màn hình height nhỏ - với bất kỳ width */
+@media (max-height: 800px) {
+    .text-box {
+        height: 270px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .text-box {
+        width: 90%;
+        height: 180px;
+        right: 5%;
+        left: 5%;
+        bottom: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .text-box {
+        padding: 12px;
+        height: 150px;
+    }
+
+    .text-content h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        padding-bottom: 5px;
+    }
+
+    .text-content p {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+}
+
 
 
 /* End Video slider CSS */
 
+/** Section 4 **/
+.fade-image-section {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.fade-in-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(2.0);
+    transition: opacity 1.8s ease-out, transform 2.2s ease-out;
+}
+
+.fade-in-image.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/***End section 4***/
+
+/* Section 5 - Experience with Game Modal */
+.experience-section {
+    height: 100vh;
+    background: url('../images/bg2.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.experience-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+}
+
+.btn-experience {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.modal-body {
+    height: 80vh;
+    background: #141414;
+}
+
+/* Đảm bảo Spline viewer lấp đầy modal */
+spline-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+/*** End Section 5 Game ***/
+/*** Section 6 ***/
+.building-section {
+    min-height: 100vh;
+    background: url('../images/bg2.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.building-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.building-image {
+    width: 100%;
+    display: block;
+}
+
+/* Các điểm tương tác với hiệu ứng nhấp nháy mạnh */
+.hotspot {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 65, 108, 0.9);
+    color: white;
+    border: none;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 65, 108, 0.5);
+    z-index: 5;
+}
+
+/* Hiệu ứng nhấp nháy 3 lớp */
+.hotspot::before,
+.hotspot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 65, 108, 0.7);
+    z-index: -1;
+}
+
+/* Pulse đầu tiên - nhanh */
+.hotspot::before {
+    animation: pulse-fast 1.5s infinite;
+}
+
+/* Pulse thứ hai - chậm hơn và lớn hơn */
+.hotspot::after {
+    animation: pulse-slow 2.5s infinite 0.5s;
+}
+
+/* Glow effect cho icon */
+.hotspot i {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+/* Animation pulse nhanh */
+@keyframes pulse-fast {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Animation pulse chậm và mạnh hơn */
+@keyframes pulse-slow {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    60% {
+        transform: scale(2.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Animation glow cho icon */
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    }
+    to {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+    }
+}
+
+/* Hiệu ứng hover */
+.hotspot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 65, 108, 0.8);
+}
+
+/* Vị trí các nút */
+.hotspot-1 {
+    top: 25%;
+    left: 20%;
+}
+
+.hotspot-2 {
+    top: 40%;
+    right: 25%;
+}
+
+.hotspot-3 {
+    bottom: 30%;
+    left: 30%;
+}
+
+.hotspot-4 {
+    bottom: 20%;
+    right: 15%;
+}
+
+/* Modal styling */
+.modal-body {
+    padding: 0;
+    background: #000;
+}
+
+.media-player {
+    width: 100%;
+}
+
+/* Thêm vào CSS để tạo hiệu ứng nhấp nháy 3 lớp */
+.third-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(255, 65, 108, 0.4);
+    z-index: -1;
+    animation: pulse-third 3s infinite 1s;
+}
+
+@keyframes pulse-third {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+        box-shadow: 0 0 0 0 rgba(255, 65, 108, 0.7);
+    }
+    70% {
+        transform: scale(2.5);
+        opacity: 0.1;
+        box-shadow: 0 0 0 20px rgba(255, 65, 108, 0);
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+        box-shadow: 0 0 0 0 rgba(255, 65, 108, 0);
+    }
+}
+
+
+/*** End Section 6 ***/
