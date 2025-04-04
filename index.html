@@ -5,896 +5,689 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vietnamplus</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <link href="css/style3.css" rel="stylesheet">
+    <!--Script Section 5-->
+    <script>
+        // Load ngay khi trang bắt đầu
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tạo script tag
+            var script = document.createElement('script');
+            script.type = 'module';
+            script.src = 'https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js';
+
+            // Chèn script vào head
+            document.head.appendChild(script);
+
+            // Sau khi script load xong
+            script.onload = function() {
+                // Tạo spline-viewer trong div ẩn
+                var splineViewer = document.createElement('spline-viewer');
+                splineViewer.setAttribute('loading-anim-type', 'spinner-small-light');
+                splineViewer.setAttribute('url', 'https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode');
+
+                // Thêm vào div ẩn để load trước
+                document.getElementById('hidden-loader').appendChild(splineViewer);
+            };
+
+            // Khi mở modal
+            document.getElementById('gameModal').addEventListener('show.bs.modal', function() {
+                var splineViewer = document.querySelector('spline-viewer');
+                if (splineViewer) {
+                    // Di chuyển spline viewer từ div ẩn vào modal
+                    document.getElementById('spline-container').appendChild(splineViewer);
+                }
+            });
+
+            // Khi đóng modal
+            document.getElementById('gameModal').addEventListener('hidden.bs.modal', function() {
+                var splineViewer = document.querySelector('spline-viewer');
+                if (splineViewer) {
+                    // Đưa spline viewer về div ẩn
+                    document.getElementById('hidden-loader').appendChild(splineViewer);
+                }
+            });
+        });
+
+    </script>
 </head>
-
 <body>
-<div class="container-fluid p-0">
-    <!-- Navbar với logo -->
-<!--    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" height="28" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>-->
+<!-- Section 1: Video Intro -->
+<section id="intro" class="video-section">
+    <!-- Logo Brand -->
+    <div class="brand-logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="logo">
+        </a>
+    </div>
 
-    <!-- Container chứa video và logo -->
     <div class="video-container">
-<!--        <video id="intro-video" autoplay loop>
+        <video id="intro-video" autoplay muted loop playsinline preload="auto" poster="">
             <source src="videos/VIDEO-1.mp4" type="video/mp4">
-        </video>-->
-        <!--<video id="intro-video" autoplay muted loop playsinline preload="auto">
-            <source src="videos/VIDEO-1.mp4" type="video/mp4">
-        </video>-->
-        <!-- Thêm preload="auto" và poster để đảm bảo hiệu suất tốt -->
-        <video id="intro-video" autoplay muted loop playsinline preload="auto">
-            <source src="videos/VIDEO-1.mp4" type="video/mp4">
-
-
+            <!--<source src="video/intro.webm" type="video/webm">-->
         </video>
-
-        <!-- Logo đè lên video -->
-        <div class="logo-overlay">
-            <img src="images/logo.png" alt="Logo" class="img-fluid">
-        </div>
     </div>
 
-    <span id="scroll-down" class="btn">
-        <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 1000;">
-    </span>
-
-    <!--Slider-->
-    <!-- Full Screen Image Section -->
-    <div class="slider-section text-center p-5">
-        <section id="section2" class="gallery-section">
-            <div class="container">
-                <!-- Ảnh đầu tiên ở một row riêng -->
-
-                        <div class="fade-image first">
-                            <img src="images/Asset2-1.png" alt="Image 1" class="img-fluid">
-                        </div>
-
-                <!-- Ảnh thứ hai ở một row riêng -->
-
-                        <div class="fade-image second">
-                            <img src="images/Asset2-4.png" alt="Image 2" class="img-fluid">
-                        </div>
-            </div>
-
-        </section>
-<!--        <div class="scroll-arrow">
-            <a href="#section3">
-                <img src="images/down.png" alt="Scroll Down" class="bounce">
-            </a>
-        </div>-->
-
-        <!-- Ảnh nền full màn hình -->
-<!--        <img src="images/Asset2-1.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
-        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid fadeIn animated">-->
-        <!-- Mũi tên cuộn xuống -->
-        <span id="fullscreen-scroll-down" class="btn">
-            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
-        </span>
+    <!-- Nút cuộn xuống ở section 1 -->
+    <div class="scroll-arrow">
+        <a href="#section2">
+            <img src="images/down.png" alt="Scroll Down" class="bounce">
+        </a>
     </div>
+</section>
 
-    <!-- HTML cho slider -->
-    <!--<div class="slider-section">
-        <div class="container">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                    </div>
+<!-- Section 2: Section -->
+<section id="section2" class="gallery-section">
+    <div class="container">
+        <!-- Ảnh đầu tiên ở một row riêng -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="fade-image first">
+                    <img src="images/Asset2-1.png" alt="Image 1" class="img-fluid">
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
+
+        <!-- Ảnh thứ hai ở một row riêng -->
+        <div class="row">
+            <div class="col-12">
+                <div class="fade-image second">
+                    <img src="images/Asset2-4.png" alt="Image 2" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút cuộn xuống ở section 2 -->
+<!--    <div class="scroll-arrow">
+        <a href="#section3">
+            <img src="images/down.png" alt="Scroll Down" class="bounce">
+        </a>
     </div>-->
-    <!--End Slider-->
-    <!--Video Slider-->
-    <!-- Video Slider Section -->
-    <div class="video-slider-section">
-        <div class="container-fluid p-0">
-            <!-- Main Video Slider -->
-            <div class="swiper videoSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <video class="main-video" muted loop playsinline>
-                            <source src="images/MUI-01.mp4" type="video/mp4">
-                        </video>
-                        <!--<div class="video-caption">
-                            <h3>Video Title 1</h3>
-                            <p>Video description goes here</p>
-                        </div>-->
-                    </div>
-                    <div class="swiper-slide">
-                        <video class="main-video" muted loop>
-                            <source src="videos/MUI-02.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="swiper-slide">
-                        <video class="main-video" muted loop>
-                            <source src="videos/MUI-03.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="swiper-slide">
-                        <video class="main-video" muted loop>
-                            <source src="videos/MUI-04.mp4" type="video/mp4">
-                        </video>
+
+</section>
+<!--Section 3: Video slider-->
+<section id="section3" class="video-section">
+    <!-- Main Video Slider -->
+    <div class="swiper videoSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img  src="images/MUI-01.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 3 (Binh đoàn Tây Nguyên)</h3>
+                        <p>Thành lập ngày 26/3/1975. Quân đoàn 3 được giao nhiệm vụ tiến công từ hướng Tây Bắc Sài Gòn, nhằm đạt các mục tiêu quan trọng: Tạo thế bao vây chiến lược từ Tây Bắc; Đánh chiếm chi khu Hậu Nghĩa, Đức Hòa, và các vị trí trên tuyến đường tiến vào nội đô; Phối hợp hiệp đồng binh chủng; Tạo áp lực chiến lược và tâm lý.</p>
                     </div>
                 </div>
-                <div class="swiper-container video-slider">
-                    <div class="swiper-wrapper">
-                        <!-- Các slide video ở đây -->
-                    </div>
-
-                    <!-- Nút tùy chỉnh -->
-                    <div class="swiper-button-prev custom-nav-btn" style="left: 10%">
-                        <img src="images/left.png" alt="Previous">
-                    </div>
-                    <div class="swiper-button-next custom-nav-btn" style="right: 10%">
-                        <img src="images/right.png" alt="Next">
-                    </div>
-                </div>
-
             </div>
-
-            <!-- Thumbnails Video Slider -->
-            <div class="swiper videoThumbnailSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="video-thumbnail">
-                            <img src="images/mui-1.png" class="img-fluid" alt="mũi-1"/>
-                            <div class="thumbnail-overlay">1</div>
-                        </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-02.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 1 (Binh đoàn Quyết Thắng)</h3>
+                        <p>Thành lập ngày 24/10/1973. Quân đoàn 1 được giao nhiệm vụ tiến công từ hướng Bắc Sài Gòn, nhằm đạt mục tiêu: Tạo thế bao vây chiến lược từ hướng Bắc; Đánh chiếm các cứ điểm then chốt gồm Căn cứ Lai Khê, các vị trí phòng thủ Bến Cát và Hóc Môn, Cầu Tham Rễ; Thọc sâu vào trung tâm Sài Gòn. Một trong những nhiệm vụ nổi bật của Quân đoàn 1 là tham gia đánh chiếm Dinh Độc Lập cùng Quân đoàn 2.</p>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="video-thumbnail">
-                            <img src="images/mui-2.png" class="img-fluid" alt="mũi-1"/>
-                            <div class="thumbnail-overlay">2</div>
-                        </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-03.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 2 (Binh đoàn Hương Giang)</h3>
+                        <p>Thành lập ngày 17/5/1974. Quân đoàn 2 được giao nhiệm vụ tiến công từ hướng Đông Bắc Sài Gòn, nhằm: Tạo thế bao vây chiến lược từ Đông Bắc; Đánh chiếm các cứ điểm Căn cứ Lộc Ninh, Chơn Thành và Đồng Xoài, Cầu Bình Triệu;  Thọc sâu vào trung tâm Sài Gòn. Một trong những nhiệm vụ nổi bật của Quân đoàn 2 là tham gia đánh chiếm Dinh Độc Lập. Xe tăng của Quân đoàn 2, phối hợp với Quân đoàn 1, đã húc đổ cổng Dinh Độc Lập vào trưa ngày 30/4/1975, đánh dấu thời khắc lịch sử của chiến dịch.</p>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="video-thumbnail">
-                            <img src="images/mui-3.png" class="img-fluid" alt="mũi-1"/>
-                            <div class="thumbnail-overlay">3</div>
-                        </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-04.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Quân đoàn 4 (Binh đoàn Cửu Long)</h3>
+                        <p>Thành lập ngày 20/7/1974. Quân đoàn 4 được giao nhiệm vụ tiến công từ hướng Đông và Đông Nam Sài Gòn, nhằm đạt các mục tiêu: Tạo thế bao vây chiến lược từ hướng Đông và Đông Nam; đánh chiếm các cứ điểm then chốt gồm Căn cứ Biên Hòa, Tổng kho Long Bình, Khu vực Thủ Đức; Thọc sâu vào trung tâm Sài Gòn; Phối hợp hiệp đồng binh chủng và hỗ trợ quần chúng; Tạo áp lực tâm lý và chiến lược.</p>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="video-thumbnail">
-                            <img src="images/mui-4.png" class="img-fluid" alt="mũi-1"/>
-                            <div class="thumbnail-overlay">4</div>
-                        </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img  src="images/MUI-05.gif" class="img-fluid" alt=""/>
+                <div class="text-box">
+                    <div class="text-content">
+                        <h3>Đoàn 232 (Binh đoàn cánh Tây Nam)</h3>
+                        <p>Được tái tổ chức và tăng cường thành một lực lượng chủ lực cấp chiến dịch vào tháng 1/1975. Đoàn 232 được giao nhiệm vụ tiến công từ hướng Tây và Tây Nam Sài Gòn, nhằm: Tạo thế bao vây chiến lược từ Tây và Tây Nam; Đánh chiếm các cứ điểm then chốt gồm Tân An (Long An), Bến Lức, Nhà Bè, Biệt khu Thủ đô, Tổng Nha Cảnh sát; Thọc sâu và hợp điểm tại trung tâm Sài Gòn; Phối hợp với quần chúng và lực lượng đặc công; Tạo áp lực chiến lược và tâm lý</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--End Video Slider-->
-    <!-- Full Screen Image Section -->
-    <div class="section-image3">
-        <!-- Ảnh nền full màn hình -->
-        <img src="images/img3.png" alt="Full Screen Image" class="img-fluid">
-        <!-- Mũi tên cuộn xuống -->
-        <!--<span id="" class="btn">
-            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
-        </span>-->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 
+    <!-- Thumbnails -->
+    <div class="thumb-container">
+        <div class="swiper thumbSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/mui-1.png" alt="Thumbnail 1"></div>
+                <div class="swiper-slide"><img src="images/mui-2.png" alt="Thumbnail 2"></div>
+                <div class="swiper-slide"><img src="images/mui-3.png" alt="Thumbnail 3"></div>
+                <div class="swiper-slide"><img src="images/mui-4.png" alt="Thumbnail 4"></div>
+                <div class="swiper-slide"><img src="images/mui-5.png" alt="Thumbnail 5"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section4" class="fade-image-section">
+    <div class="image-container">
+        <img src="images/img3.png" alt="Full Screen Image" class="fade-in-image img-fluid">
+    </div>
+</section>
 
-   <div class="content">
-        <div class="container">
-            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
-            <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode"></spline-viewer>
+<!--Popup games-->
+<section id="section5" class="experience-section">
+    <div class="experience-content">
+        <h2>Sẵn sàng cho trải nghiệm mới?</h2>
+        <button type="button" class="btn btn-experience" data-bs-toggle="modal" data-bs-target="#gameModal">
+            Trải Nghiệm
+        </button>
+    </div>
+
+    <!-- Div ẩn để load sẵn Spline -->
+    <div id="hidden-loader" style="position: absolute; visibility: hidden; width: 0; height: 0; overflow: hidden;"></div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" aria-labelledby="gameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gameModalLabel">Trải nghiệm lái xe tăng 3D</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0" id="spline-container">
+                    <!-- Spline se được move vào đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Section 6-->
+<section id="section6" class="building-section">
+    <div class="building-container">
+        <img src="images/toanha.png" alt="Building" class="building-image">
+
+        <!-- Các nút tương tác với hiệu ứng nhấp nháy mạnh -->
+        <button class="hotspot hotspot-1" data-bs-toggle="modal" data-bs-target="#mediaModal1">
+            <i class="fas fa-video"></i>
+        </button>
+
+        <button class="hotspot hotspot-2" data-bs-toggle="modal" data-bs-target="#mediaModal2">
+            <i class="fas fa-music"></i>
+        </button>
+
+        <button class="hotspot hotspot-3" data-bs-toggle="modal" data-bs-target="#mediaModal3">
+            <i class="fas fa-film"></i>
+        </button>
+
+        <button class="hotspot hotspot-4" data-bs-toggle="modal" data-bs-target="#mediaModal4">
+            <i class="fas fa-headphones"></i>
+        </button>
+    </div>
+
+    <!-- Media Modal 1 -->
+    <div class="modal fade" id="mediaModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Video Tour</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <video class="media-player" controls src="media/video1.mp4"></video>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="section-image4">
-        <!-- Ảnh nền full màn hình -->
-        <img src="images/img4.png" alt="Full Screen Image" class="img-fluid">
-
-        <!-- Mũi tên cuộn xuống -->
-        <!--<span id="" class="btn">
-            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
-        </span>-->
+    <!-- Media Modal 2 -->
+    <div class="modal fade" id="mediaModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Audio Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <audio class="media-player" controls src="media/audio1.mp3"></audio>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Full Screen Image Slider with Glowing Borders using Bootstrap Carousel -->
-    <!-- Full Screen Image Slider with fixed heights using Bootstrap Carousel -->
-    <section class="fullscreen-carousel-section" id="galleryCarousel">
-        <div id="imageCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-            <!-- Indicators/dots -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    <!-- Media Modal 3 -->
+    <div class="modal fade" id="mediaModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Building History</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <video class="media-player" controls src="media/video2.mp4"></video>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- The slideshow/carousel -->
-            <div class="carousel-inner">
+    <!-- Media Modal 4 -->
+    <div class="modal fade" id="mediaModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sound Experience</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <audio class="media-player" controls src="media/audio2.mp3"></audio>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--End section 6-->
+<!--Section 7-->
+<section id="section7" class="vh-100 position-relative overflow-hidden bg-dark">
+    <!-- Video nền -->
+    <video id="bg-video" class="position-absolute w-100 h-100 object-fit-cover" muted loop playsinline poster="images/Doantu-02.jpg">
+        <source src="videos/DOAN-TU_SOUND.mp4" type="video/mp4">
+    </video>
+
+    <!-- Nhóm nút điều khiển -->
+    <div class="video-controls position-absolute">
+        <button id="play-toggle" class="btn control-btn" aria-label="Phát/Dừng">
+            <i class="bi bi-play-fill"></i>
+            <i class="bi bi-pause-fill"></i>
+        </button>
+
+        <button id="sound-toggle" class="btn control-btn" aria-label="Bật/tắt âm thanh">
+            <i class="bi bi-volume-mute-fill"></i>
+            <i class="bi bi-volume-up-fill"></i>
+        </button>
+    </div>
+
+</section>
+
+<!--End Secton 7-->
+
+<!--Section 8-->
+<section id="section8" class="news-section vh-100 d-flex align-items-center">
+    <div class="container">
+        <!--<h2 class="text-center mb-4">Tin Tức & Cập Nhật</h2>-->
+
+        <!-- Swiper Chính -->
+        <div class="swiper newsSwiper mb-4">
+            <div class="swiper-wrapper">
                 <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="bg-image" style="background-image: url('images/Doantu-01.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-01.jpg" alt="Gallery Image 1" class="main-carousel-image">
+                <div class="swiper-slide">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news5.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Các công trình giúp Thành phố Hồ Chí Minh vươn mình thành đô thị hiện đại</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news6.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chuẩn bị chu đáo cho diễu binh kỷ niệm 50 năm giải phóng miền Nam</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-02.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-02.jpg" alt="Gallery Image 2" class="main-carousel-image">
+                <!-- Slide 2-5 (tương tự với nội dung khác) -->
+                <div class="swiper-slide">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-03.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-03.jpg" alt="Gallery Image 3" class="main-carousel-image">
+                <!-- Slides 3-5 -->
+                <div class="swiper-slide">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-04.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-04.jpg" alt="Gallery Image 4" class="main-carousel-image">
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-05.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-05.jpg" alt="Gallery Image 5" class="main-carousel-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 6 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-06.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-06.jpg" alt="Gallery Image 6" class="main-carousel-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 7 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-07.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-07.jpg" alt="Gallery Image 7" class="main-carousel-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 8 -->
-                <div class="carousel-item">
-                    <div class="bg-image" style="background-image: url('images/Doantu-08.jpg');"></div>
-                    <div class="overlay"></div>
-                    <div class="carousel-content">
-                        <div class="glowing-frame">
-                            <img src="images/Doantu-08.jpg" alt="Gallery Image 8" class="main-carousel-image">
+                        <div class="col-md-4">
+                            <div class="card h-auto">
+                                <a href="#"><img src="images/news4.png" class="card-img-top" alt="Tin tức 1"></a>
+                                <div class="card-body">
+                                    <a href="#" class="text-decoration-none text-black fw-bold"><h5 class="card-title">Chiến dịch Huế-Đà Nẵng: Nước cờ thay đổi hẳn cục diện chiến tranh</h5></a>
+                                    <!--                                    <p class="card-text">Mô tả ngắn về nội dung tin tức đầu tiên...</p>
+                                                                        <a href="#" class="btn btn-sm btn-primary">Đọc thêm</a>-->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
-                <img src="images/left.png" alt="Previous" class="custom-arrow">
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
-                <img src="images/right.png" alt="Next" class="custom-arrow">
-                <span class="visually-hidden">Next</span>
-            </button>
+            <!-- Điều hướng cho slide chính -->
+            <div class="swiper-button-next news-next"></div>
+            <div class="swiper-button-prev news-prev"></div>
         </div>
-    </section>
 
-
-<!--Slider end-->
-    <!-- News Slider Section with Background Image -->
-    <section class="news-slider-section" style="background-image: url('images/bg-news.png');">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title text-center">Latest News & Updates</h2>
-
-                    <!-- Main News Slider Container -->
-                    <div class="news-slider-container">
-                        <!-- Main News Slides -->
-                        <div class="news-slider">
-                            <!-- Slide 1 -->
-                            <div class="news-slide">
-                                <div class="row">
-                                    <!-- News Item 1 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news1.png" alt="News 1">
-                                                <div class="news-date">
-                                                    <span class="day">24</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Industry Leaders Meet to Discuss Future Technology Trends</h3>
-                                                <p class="news-excerpt">The annual tech summit brought together experts from around the world...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 2 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news2.png" alt="News 2">
-                                                <div class="news-date">
-                                                    <span class="day">22</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">New Partnership Announced to Accelerate Digital Transformation</h3>
-                                                <p class="news-excerpt">Leading companies collaborate on innovative solutions...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 3 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news3.png" alt="News 3">
-                                                <div class="news-date">
-                                                    <span class="day">20</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Research Team Unveils Breakthrough in Sustainable Technology</h3>
-                                                <p class="news-excerpt">Scientists have developed a revolutionary approach to energy efficiency...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 2 -->
-                            <div class="news-slide">
-                                <div class="row">
-                                    <!-- News Item 1 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news1.png" alt="News 4">
-                                                <div class="news-date">
-                                                    <span class="day">18</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Global Conference Highlights Innovations in Sustainable Development</h3>
-                                                <p class="news-excerpt">Leaders from various sectors shared insights on implementing sustainability...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 2 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news2.png" alt="News 5">
-                                                <div class="news-date">
-                                                    <span class="day">16</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Award-Winning Project Transforms Urban Spaces with Smart Technology</h3>
-                                                <p class="news-excerpt">A revolutionary approach to urban planning...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 3 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news3.png" alt="News 6">
-                                                <div class="news-date">
-                                                    <span class="day">14</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Industry Experts Predict Key Technology Trends for Next Decade</h3>
-                                                <p class="news-excerpt">Leading analysts shared forecasts on technological advancements...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 3 -->
-                            <div class="news-slide">
-                                <div class="row">
-                                    <!-- News Item 1 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news1.png" alt="News 7">
-                                                <div class="news-date">
-                                                    <span class="day">12</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">New Regulatory Framework Announced for Emerging Technologies</h3>
-                                                <p class="news-excerpt">Government agencies introduce guidelines to ensure responsible development...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 2 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news2.png" alt="News 8">
-                                                <div class="news-date">
-                                                    <span class="day">10</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">Startup Raises Record Funding for Innovative Health Technology</h3>
-                                                <p class="news-excerpt">A promising healthcare startup secured major investment to develop breakthrough...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- News Item 3 -->
-                                    <div class="col-md-4">
-                                        <div class="news-card">
-                                            <div class="news-image">
-                                                <img src="images/news3.png" alt="News 9">
-                                                <div class="news-date">
-                                                    <span class="day">08</span>
-                                                    <span class="month">Jun</span>
-                                                </div>
-                                            </div>
-                                            <div class="news-content">
-                                                <h3 class="news-title">International Collaboration Launched to Address Cybersecurity Challenges</h3>
-                                                <p class="news-excerpt">Organizations across borders form alliance to combat rising threats...</p>
-                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <!-- Thumbnails Swiper -->
+        <div class="thumbs-wrapper position-relative">
+            <div class="swiper thumbsSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="thumb-item">
+                            <img src="images/thumb-1.png" alt="Thumbnail 1">
+                            <!--<span class="thumb-label">Tin mới nhất</span>-->
                         </div>
                     </div>
-
-                    <!-- Thumbnails Navigation -->
-                    <div class="news-thumbnails-container">
-                        <button class="thumbnails-nav-prev">
-                            <img src="images/left.png" alt="Previous">
-                        </button>
-
-                        <div class="news-thumbnails-wrapper">
-                            <div class="news-thumbnails">
-                                <!-- Thumbnail 1 -->
-                                <div class="news-thumbnail active" data-index="0">
-                                    <div class="thumbnail-image">
-                                        <img src="images/Thumb-5.png" alt="Technology News">
-                                    </div>
-                                    <span class="thumbnail-title"></span>
-                                </div>
-
-                                <!-- Thumbnail 2 -->
-                                <div class="news-thumbnail" data-index="1">
-                                    <div class="thumbnail-image">
-                                        <img src="images/Asset-4.png" alt="Innovation News">
-                                    </div>
-                                    <span class="thumbnail-title"></span>
-                                </div>
-
-                                <!-- Thumbnail 3 -->
-                                <div class="news-thumbnail" data-index="2">
-                                    <div class="thumbnail-image">
-                                        <img src="images/Thumb-3.png" alt="Business News">
-                                    </div>
-                                    <span class="thumbnail-title"></span>
-                                </div>
-                            </div>
+                    <div class="swiper-slide">
+                        <div class="thumb-item">
+                            <img src="images/thumb-2.png" alt="Thumbnail 2">
+                            <!--<span class="thumb-label">Sự kiện</span>-->
                         </div>
-
-                        <button class="thumbnails-nav-next">
-                            <img src="images/right.png" alt="Next">
-                        </button>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="thumb-item">
+                            <img src="images/thumb-3.png" alt="Thumbnail 3">
+                            <!--<span class="thumb-label">Cập nhật</span>-->
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Điều hướng cho thumbnails (ẩn mặc định) -->
+            <div class="swiper-button-next thumb-next"></div>
+            <div class="swiper-button-prev thumb-prev"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-</div>
 
+<!--End Section 8-->
+
+<!--Script Area-->
 
 <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<!--<script src="js/custom.js"></script>-->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const video = document.getElementById('intro-video');
-        const scrollButton = document.getElementById('scroll-down');
-        const sliderSection = document.querySelector('.slider-section'); // Đặt class này cho phần slider ảnh
+    $(document).ready(function() {
+        // Xử lý autoplay video
+        var video = document.getElementById('intro-video');
+        if(video) {
+            video.play().catch(function(error) {
+                console.log("Video autoplay prevented:", error);
+            });
+        }
 
+        // Xử lý smooth scrolling khi click vào mũi tên
+        $('.scroll-arrow a').on('click', function(event) {
+            event.preventDefault();
+            var target = $(this).attr('href');
 
-        video.addEventListener('play', function() {
-            scrollButton.style.display = 'block';
-        });
-
-        scrollButton.addEventListener('click', function() {
-            sliderSection.scrollIntoView({ behavior: 'smooth' });
-        });
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > window.innerHeight / 2) {
-                scrollButton.style.display = 'none';
-            } else {
-                scrollButton.style.display = 'block';
-            }
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 1000);
         });
     });
 
 </script>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-
-    });
-</script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="js/swiper-bundle.min.js"></script>
+<!--Script Cho slide Video-->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Khởi tạo thumbnail swiper
-        let videoThumbnailSwiper = new Swiper(".videoThumbnailSwiper", {
+        var thumbSwiper = new Swiper(".thumbSwiper", {
+            slidesPerView: 5,
             spaceBetween: 10,
-            slidesPerView: 4,
-            freeMode: true,
             watchSlidesProgress: true,
-            breakpoints: {
-                320: {
-                    slidesPerView: 2,
-                    spaceBetween: 10
-                },
-                480: {
-                    slidesPerView: 3,
-                    spaceBetween: 10
-                },
-                768: {
-                    slidesPerView: 4,
-                    spaceBetween: 10
-                }
-            }
+            slideToClickedSlide: true
         });
 
-        // Khởi tạo main video swiper
-        let videoSwiper = new Swiper(".videoSwiper", {
-            spaceBetween: 0,
+        var videoSwiper = new Swiper(".videoSwiper", {
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
             thumbs: {
-                swiper: videoThumbnailSwiper,
+                swiper: thumbSwiper,
             },
             on: {
                 slideChange: function() {
-                    // Dừng tất cả video
-                    let videos = document.querySelectorAll('.main-video');
-                    videos.forEach(video => {
-                        video.pause();
-                    });
-
-                    // Phát video hiện tại
-                    let currentVideo = videos[videoSwiper.activeIndex];
-                    if (currentVideo) {
-                        currentVideo.currentTime = 0;
-                        // Thêm dòng này để đảm bảo video có thể phát
-                        currentVideo.muted = true;
-                        let playPromise = currentVideo.play();
-
-                        if (playPromise !== undefined) {
-                            playPromise.then(_ => {
-                                // Phát thành công
-                            })
-                                .catch(error => {
-                                    console.log('Không thể phát video: ', error);
-                                });
-                        }
-                    }
-                },
-                init: function() {
-                    // Phát video đầu tiên khi trang tải xong
-                    let firstVideo = document.querySelector('.main-video');
-                    if (firstVideo) {
-                        firstVideo.muted = true;
-                        let playPromise = firstVideo.play();
-
-                        if (playPromise !== undefined) {
-                            playPromise.then(_ => {
-                                // Phát thành công
-                            })
-                                .catch(error => {
-                                    console.log('Không thể phát video: ', error);
-                                });
-                        }
-                    }
+                    document.querySelectorAll('.videoSwiper video').forEach(video => video.pause());
+                    setTimeout(() => {
+                        document.querySelector('.videoSwiper .swiper-slide-active video').play();
+                    }, 100);
                 }
             }
         });
 
-        // Thêm sự kiện click vào thumbnail để chạy video
-        let thumbnailSlides = document.querySelectorAll('.videoThumbnailSwiper .swiper-slide');
-        thumbnailSlides.forEach((slide, index) => {
-            slide.addEventListener('click', function() {
-                videoSwiper.slideTo(index);
-            });
+        // Cập nhật swiper khi resize window
+        window.addEventListener('resize', function() {
+            thumbSwiper.update();
+            videoSwiper.update();
         });
     });
 
 </script>
+<!--Script Section 4-->
 <script>
-    // JavaScript cho mũi tên cuộn xuống ở phần fullscreen
-    document.getElementById('fullscreen-scroll-down').addEventListener('click', function() {
-        const nextSection = document.querySelector('.video-slider-section');
-        if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
-        }
+    // Theo dõi khi cuộn đến section 4
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const image = entry.target.querySelector('.fade-in-image');
+                image.classList.add('visible');
+                observer.unobserve(entry.target); // Chỉ kích hoạt một lần
+            }
+        });
+    }, {threshold: 0.3}); // Kích hoạt khi 30% section hiển thị
+
+    // Kích hoạt observer khi trang tải xong
+    document.addEventListener('DOMContentLoaded', () => {
+        const section4 = document.getElementById('section4');
+        if (section4) observer.observe(section4);
     });
+
 </script>
+
+<!--Script section 6-->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Elements
-        const newsSlides = document.querySelectorAll('.news-slide');
-        const thumbnails = document.querySelectorAll('.news-thumbnail');
-        const prevButton = document.querySelector('.thumbnails-nav-prev');
-        const nextButton = document.querySelector('.thumbnails-nav-next');
-        const newsSliderContainer = document.querySelector('.news-slider-container');
-
-        // Set up variables
-        let currentIndex = 0;
-        const slideCount = newsSlides.length;
-
-        // Initialize: set first slide as active
-        newsSlides[0].classList.add('active');
-        thumbnails[0].classList.add('active');
-
-        // Debug log to verify slide count
-        console.log(`Total slides: ${slideCount}`);
-
-        // Event listeners for navigation buttons
-        prevButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            navigateSlide(-1);
+        // Thêm lớp pulse thứ ba cho hiệu ứng mạnh hơn
+        document.querySelectorAll('.hotspot').forEach(hotspot => {
+            const pulseElement = document.createElement('span');
+            pulseElement.className = 'third-pulse';
+            hotspot.appendChild(pulseElement);
         });
 
-        nextButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            navigateSlide(1);
-        });
+        // Xử lý media autoplay
+        const mediaModals = document.querySelectorAll('.modal');
+        mediaModals.forEach(modal => {
+            modal.addEventListener('shown.bs.modal', function() {
+                const mediaPlayer = this.querySelector('.media-player');
+                if (mediaPlayer) mediaPlayer.play();
+            });
 
-        // Event listeners for thumbnails
-        thumbnails.forEach(function(thumbnail, index) {
-            thumbnail.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Debug log
-                console.log(`Clicked thumbnail index: ${index}`);
-                goToSlide(index);
+            modal.addEventListener('hidden.bs.modal', function() {
+                const mediaPlayer = this.querySelector('.media-player');
+                if (mediaPlayer) {
+                    mediaPlayer.pause();
+                    mediaPlayer.currentTime = 0;
+                }
             });
         });
-
-        function navigateSlide(direction) {
-            let newIndex = currentIndex + direction;
-
-            if (newIndex >= slideCount) {
-                newIndex = 0;
-            } else if (newIndex < 0) {
-                newIndex = slideCount - 1;
-            }
-
-            goToSlide(newIndex);
-        }
-
-        function goToSlide(index) {
-            if (index < 0 || index >= slideCount || index === currentIndex) {
-                return;
-            }
-
-            // Debug log
-            console.log(`Going to slide: ${index}`);
-
-            // Remove active class from current slide and thumbnail
-            newsSlides[currentIndex].classList.remove('active');
-            thumbnails[currentIndex].classList.remove('active');
-
-            // Update current index
-            currentIndex = index;
-
-            // Add active class to new slide and thumbnail
-            newsSlides[currentIndex].classList.add('active');
-            thumbnails[currentIndex].classList.add('active');
-
-            // Debug log to verify active class was added
-            console.log(`Added active class to slide ${currentIndex}`);
-            console.log(`Slide ${currentIndex} classList:`, newsSlides[currentIndex].classList);
-        }
-
-        // Auto slide functionality (optional)
-        let autoSlideInterval = setInterval(function() {
-            navigateSlide(1);
-        }, 7000);
-
-        // Pause auto slide on hover
-        newsSliderContainer.addEventListener('mouseenter', function() {
-            clearInterval(autoSlideInterval);
-        });
-
-        newsSliderContainer.addEventListener('mouseleave', function() {
-            autoSlideInterval = setInterval(function() {
-                navigateSlide(1);
-            }, 7000);
-        });
-
-        // Touch swipe functionality for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        newsSliderContainer.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-            // Pause auto slide during swipe
-            clearInterval(autoSlideInterval);
-        }, {passive: true});
-
-        newsSliderContainer.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-
-            // Restart auto slide after swipe
-            autoSlideInterval = setInterval(function() {
-                navigateSlide(1);
-            }, 7000);
-        }, {passive: true});
-
-        function handleSwipe() {
-            // Left swipe (next)
-            if (touchEndX < touchStartX - 50) {
-                navigateSlide(1);
-            }
-
-            // Right swipe (previous)
-            if (touchEndX > touchStartX + 50) {
-                navigateSlide(-1);
-            }
-        }
     });
+
 </script>
+
+<!--Script section 7-->
 <script>
-    $(document).ready(function() {
-        // Xử lý fade animation khi cuộn
-        $(window).scroll(function() {
-            var windowBottom = $(window).scrollTop() + $(window).height();
-            var sectionTop = $('#section2').offset().top;
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('bg-video');
+        const playBtn = document.getElementById('play-toggle');
+        const soundBtn = document.getElementById('sound-toggle');
 
-            if (windowBottom > sectionTop + 100) {
-                $('.fade-image').each(function() {
-                    var delay = $(this).data('delay') || 0;
-                    var $this = $(this);
-
-                    setTimeout(function() {
-                        $this.addClass('visible');
-                    }, delay);
+        // Phát video khi scroll đến (muted)
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                video.play().then(() => {
+                    video.classList.add('visible');
+                    playBtn.classList.add('playing');
                 });
+            } else {
+                video.pause();
+                playBtn.classList.remove('playing');
+            }
+        }, {threshold: 0.3});
+
+        observer.observe(document.getElementById('section7'));
+
+        // Xử lý nút play/pause
+        playBtn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playBtn.classList.add('playing');
+            } else {
+                video.pause();
+                playBtn.classList.remove('playing');
             }
         });
 
-        // Kiểm tra ngay khi tải trang
-        $(window).trigger('scroll');
+        // Xử lý nút âm thanh
+        soundBtn.addEventListener('click', function() {
+            if (video.muted) {
+                video.muted = false;
+                soundBtn.classList.add('unmuted');
+            } else {
+                video.muted = true;
+                soundBtn.classList.remove('unmuted');
+            }
+        });
+
+        // Đồng bộ trạng thái nút khi video thay đổi
+        video.addEventListener('pause', () => {
+            playBtn.classList.remove('playing');
+        });
+
+        video.addEventListener('play', () => {
+            playBtn.classList.add('playing');
+        });
     });
+
+
+</script>
+
+<!--Script section 8-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Khởi tạo Swiper thumbnails
+        var thumbsSwiper = new Swiper(".thumbsSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            watchSlidesProgress: true,
+            centerInsufficientSlides: true,
+            navigation: {
+                nextEl: ".thumb-next",
+                prevEl: ".thumb-prev",
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                576: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Khởi tạo Swiper chính
+        var newsSwiper = new Swiper(".newsSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            navigation: {
+                nextEl: ".news-next",
+                prevEl: ".news-prev",
+            },
+            thumbs: {
+                swiper: thumbsSwiper,
+            },
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 500,
+            loop: true
+        });
+    });
+
 
 </script>
 </body>

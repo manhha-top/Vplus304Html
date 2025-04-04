@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vietnamplus</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid p-0">
+    <!-- Navbar với logo -->
+<!--    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" height="28" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>-->
+
+    <!-- Container chứa video và logo -->
+    <div class="video-container">
+<!--        <video id="intro-video" autoplay loop>
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+        </video>-->
+        <!--<video id="intro-video" autoplay muted loop playsinline preload="auto">
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+        </video>-->
+        <!-- Thêm preload="auto" và poster để đảm bảo hiệu suất tốt -->
+        <video id="intro-video" autoplay muted loop playsinline preload="auto">
+            <source src="videos/VIDEO-1.mp4" type="video/mp4">
+
+
+        </video>
+
+        <!-- Logo đè lên video -->
+        <div class="logo-overlay">
+            <img src="images/logo.png" alt="Logo" class="img-fluid">
+        </div>
+    </div>
+
+    <span id="scroll-down" class="btn">
+        <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 1000;">
+    </span>
+
+    <!--Slider-->
+    <!-- Full Screen Image Section -->
+    <div class="slider-section text-center p-5">
+        <section id="section2" class="gallery-section">
+            <div class="container">
+                <!-- Ảnh đầu tiên ở một row riêng -->
+
+                        <div class="fade-image first">
+                            <img src="images/Asset2-1.png" alt="Image 1" class="img-fluid">
+                        </div>
+
+                <!-- Ảnh thứ hai ở một row riêng -->
+
+                        <div class="fade-image second">
+                            <img src="images/Asset2-4.png" alt="Image 2" class="img-fluid">
+                        </div>
+            </div>
+
+        </section>
+<!--        <div class="scroll-arrow">
+            <a href="#section3">
+                <img src="images/down.png" alt="Scroll Down" class="bounce">
+            </a>
+        </div>-->
+
+        <!-- Ảnh nền full màn hình -->
+<!--        <img src="images/Asset2-1.png" alt="Full Screen Image" class="img-fluid fadeIn animated">
+        <img src="images/Asset2-4.png" alt="Full Screen Image" class="img-fluid fadeIn animated">-->
+        <!-- Mũi tên cuộn xuống -->
+        <span id="fullscreen-scroll-down" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>
+    </div>
+
+    <!-- HTML cho slider -->
+    <!--<div class="slider-section">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>-->
+    <!--End Slider-->
+    <!--Video Slider-->
+    <!-- Video Slider Section -->
+    <div class="video-slider-section">
+        <div class="container-fluid p-0">
+            <!-- Main Video Slider -->
+            <div class="swiper videoSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop playsinline>
+                            <source src="images/MUI-01.mp4" type="video/mp4">
+                        </video>
+                        <!--<div class="video-caption">
+                            <h3>Video Title 1</h3>
+                            <p>Video description goes here</p>
+                        </div>-->
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/MUI-02.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/MUI-03.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="swiper-slide">
+                        <video class="main-video" muted loop>
+                            <source src="videos/MUI-04.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="swiper-container video-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Các slide video ở đây -->
+                    </div>
+
+                    <!-- Nút tùy chỉnh -->
+                    <div class="swiper-button-prev custom-nav-btn" style="left: 10%">
+                        <img src="images/left.png" alt="Previous">
+                    </div>
+                    <div class="swiper-button-next custom-nav-btn" style="right: 10%">
+                        <img src="images/right.png" alt="Next">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Thumbnails Video Slider -->
+            <div class="swiper videoThumbnailSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <img src="images/mui-1.png" class="img-fluid" alt="mũi-1"/>
+                            <div class="thumbnail-overlay">1</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <img src="images/mui-2.png" class="img-fluid" alt="mũi-1"/>
+                            <div class="thumbnail-overlay">2</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <img src="images/mui-3.png" class="img-fluid" alt="mũi-1"/>
+                            <div class="thumbnail-overlay">3</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="video-thumbnail">
+                            <img src="images/mui-4.png" class="img-fluid" alt="mũi-1"/>
+                            <div class="thumbnail-overlay">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Video Slider-->
+    <!-- Full Screen Image Section -->
+    <div class="section-image3">
+        <!-- Ảnh nền full màn hình -->
+        <img src="images/img3.png" alt="Full Screen Image" class="img-fluid">
+        <!-- Mũi tên cuộn xuống -->
+        <!--<span id="" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>-->
+    </div>
+
+
+   <div class="content">
+        <div class="container">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.72/build/spline-viewer.js"></script>
+            <spline-viewer loading-anim-type="spinner-small-light" url="https://prod.spline.design/CokDaPf1N5FLqLRw/scene.splinecode"></spline-viewer>
+        </div>
+    </div>
+
+    <div class="section-image4">
+        <!-- Ảnh nền full màn hình -->
+        <img src="images/img4.png" alt="Full Screen Image" class="img-fluid">
+
+        <!-- Mũi tên cuộn xuống -->
+        <!--<span id="" class="btn">
+            <img src="images/down.png" alt="Cuộn xuống" width="50" height="50" style="cursor: pointer; z-index: 100;">
+        </span>-->
+    </div>
+
+    <!-- Full Screen Image Slider with Glowing Borders using Bootstrap Carousel -->
+    <!-- Full Screen Image Slider with fixed heights using Bootstrap Carousel -->
+    <section class="fullscreen-carousel-section" id="galleryCarousel">
+        <div id="imageCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="bg-image" style="background-image: url('images/Doantu-01.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-01.jpg" alt="Gallery Image 1" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-02.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-02.jpg" alt="Gallery Image 2" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-03.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-03.jpg" alt="Gallery Image 3" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-04.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-04.jpg" alt="Gallery Image 4" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-05.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-05.jpg" alt="Gallery Image 5" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-06.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-06.jpg" alt="Gallery Image 6" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-07.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-07.jpg" alt="Gallery Image 7" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 8 -->
+                <div class="carousel-item">
+                    <div class="bg-image" style="background-image: url('images/Doantu-08.jpg');"></div>
+                    <div class="overlay"></div>
+                    <div class="carousel-content">
+                        <div class="glowing-frame">
+                            <img src="images/Doantu-08.jpg" alt="Gallery Image 8" class="main-carousel-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                <img src="images/left.png" alt="Previous" class="custom-arrow">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                <img src="images/right.png" alt="Next" class="custom-arrow">
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+
+<!--Slider end-->
+    <!-- News Slider Section with Background Image -->
+    <section class="news-slider-section" style="background-image: url('images/bg-news.png');">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title text-center">Latest News & Updates</h2>
+
+                    <!-- Main News Slider Container -->
+                    <div class="news-slider-container">
+                        <!-- Main News Slides -->
+                        <div class="news-slider">
+                            <!-- Slide 1 -->
+                            <div class="news-slide">
+                                <div class="row">
+                                    <!-- News Item 1 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news1.png" alt="News 1">
+                                                <div class="news-date">
+                                                    <span class="day">24</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Industry Leaders Meet to Discuss Future Technology Trends</h3>
+                                                <p class="news-excerpt">The annual tech summit brought together experts from around the world...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 2 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news2.png" alt="News 2">
+                                                <div class="news-date">
+                                                    <span class="day">22</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">New Partnership Announced to Accelerate Digital Transformation</h3>
+                                                <p class="news-excerpt">Leading companies collaborate on innovative solutions...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 3 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news3.png" alt="News 3">
+                                                <div class="news-date">
+                                                    <span class="day">20</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Research Team Unveils Breakthrough in Sustainable Technology</h3>
+                                                <p class="news-excerpt">Scientists have developed a revolutionary approach to energy efficiency...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="news-slide">
+                                <div class="row">
+                                    <!-- News Item 1 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news1.png" alt="News 4">
+                                                <div class="news-date">
+                                                    <span class="day">18</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Global Conference Highlights Innovations in Sustainable Development</h3>
+                                                <p class="news-excerpt">Leaders from various sectors shared insights on implementing sustainability...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 2 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news2.png" alt="News 5">
+                                                <div class="news-date">
+                                                    <span class="day">16</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Award-Winning Project Transforms Urban Spaces with Smart Technology</h3>
+                                                <p class="news-excerpt">A revolutionary approach to urban planning...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 3 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news3.png" alt="News 6">
+                                                <div class="news-date">
+                                                    <span class="day">14</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Industry Experts Predict Key Technology Trends for Next Decade</h3>
+                                                <p class="news-excerpt">Leading analysts shared forecasts on technological advancements...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="news-slide">
+                                <div class="row">
+                                    <!-- News Item 1 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news1.png" alt="News 7">
+                                                <div class="news-date">
+                                                    <span class="day">12</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">New Regulatory Framework Announced for Emerging Technologies</h3>
+                                                <p class="news-excerpt">Government agencies introduce guidelines to ensure responsible development...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 2 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news2.png" alt="News 8">
+                                                <div class="news-date">
+                                                    <span class="day">10</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">Startup Raises Record Funding for Innovative Health Technology</h3>
+                                                <p class="news-excerpt">A promising healthcare startup secured major investment to develop breakthrough...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- News Item 3 -->
+                                    <div class="col-md-4">
+                                        <div class="news-card">
+                                            <div class="news-image">
+                                                <img src="images/news3.png" alt="News 9">
+                                                <div class="news-date">
+                                                    <span class="day">08</span>
+                                                    <span class="month">Jun</span>
+                                                </div>
+                                            </div>
+                                            <div class="news-content">
+                                                <h3 class="news-title">International Collaboration Launched to Address Cybersecurity Challenges</h3>
+                                                <p class="news-excerpt">Organizations across borders form alliance to combat rising threats...</p>
+                                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails Navigation -->
+                    <div class="news-thumbnails-container">
+                        <button class="thumbnails-nav-prev">
+                            <img src="images/left.png" alt="Previous">
+                        </button>
+
+                        <div class="news-thumbnails-wrapper">
+                            <div class="news-thumbnails">
+                                <!-- Thumbnail 1 -->
+                                <div class="news-thumbnail active" data-index="0">
+                                    <div class="thumbnail-image">
+                                        <img src="images/Thumb-5.png" alt="Technology News">
+                                    </div>
+                                    <span class="thumbnail-title"></span>
+                                </div>
+
+                                <!-- Thumbnail 2 -->
+                                <div class="news-thumbnail" data-index="1">
+                                    <div class="thumbnail-image">
+                                        <img src="images/Asset-4.png" alt="Innovation News">
+                                    </div>
+                                    <span class="thumbnail-title"></span>
+                                </div>
+
+                                <!-- Thumbnail 3 -->
+                                <div class="news-thumbnail" data-index="2">
+                                    <div class="thumbnail-image">
+                                        <img src="images/Thumb-3.png" alt="Business News">
+                                    </div>
+                                    <span class="thumbnail-title"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="thumbnails-nav-next">
+                            <img src="images/right.png" alt="Next">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+
+<script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!--<script src="js/custom.js"></script>-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('intro-video');
+        const scrollButton = document.getElementById('scroll-down');
+        const sliderSection = document.querySelector('.slider-section'); // Đặt class này cho phần slider ảnh
+
+
+        video.addEventListener('play', function() {
+            scrollButton.style.display = 'block';
+        });
+
+        scrollButton.addEventListener('click', function() {
+            sliderSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollButton.style.display = 'none';
+            } else {
+                scrollButton.style.display = 'block';
+            }
+        });
+    });
+
+</script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+
+    });
+</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Khởi tạo thumbnail swiper
+        let videoThumbnailSwiper = new Swiper(".videoThumbnailSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                480: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 10
+                }
+            }
+        });
+
+        // Khởi tạo main video swiper
+        let videoSwiper = new Swiper(".videoSwiper", {
+            spaceBetween: 0,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: videoThumbnailSwiper,
+            },
+            on: {
+                slideChange: function() {
+                    // Dừng tất cả video
+                    let videos = document.querySelectorAll('.main-video');
+                    videos.forEach(video => {
+                        video.pause();
+                    });
+
+                    // Phát video hiện tại
+                    let currentVideo = videos[videoSwiper.activeIndex];
+                    if (currentVideo) {
+                        currentVideo.currentTime = 0;
+                        // Thêm dòng này để đảm bảo video có thể phát
+                        currentVideo.muted = true;
+                        let playPromise = currentVideo.play();
+
+                        if (playPromise !== undefined) {
+                            playPromise.then(_ => {
+                                // Phát thành công
+                            })
+                                .catch(error => {
+                                    console.log('Không thể phát video: ', error);
+                                });
+                        }
+                    }
+                },
+                init: function() {
+                    // Phát video đầu tiên khi trang tải xong
+                    let firstVideo = document.querySelector('.main-video');
+                    if (firstVideo) {
+                        firstVideo.muted = true;
+                        let playPromise = firstVideo.play();
+
+                        if (playPromise !== undefined) {
+                            playPromise.then(_ => {
+                                // Phát thành công
+                            })
+                                .catch(error => {
+                                    console.log('Không thể phát video: ', error);
+                                });
+                        }
+                    }
+                }
+            }
+        });
+
+        // Thêm sự kiện click vào thumbnail để chạy video
+        let thumbnailSlides = document.querySelectorAll('.videoThumbnailSwiper .swiper-slide');
+        thumbnailSlides.forEach((slide, index) => {
+            slide.addEventListener('click', function() {
+                videoSwiper.slideTo(index);
+            });
+        });
+    });
+
+</script>
+<script>
+    // JavaScript cho mũi tên cuộn xuống ở phần fullscreen
+    document.getElementById('fullscreen-scroll-down').addEventListener('click', function() {
+        const nextSection = document.querySelector('.video-slider-section');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements
+        const newsSlides = document.querySelectorAll('.news-slide');
+        const thumbnails = document.querySelectorAll('.news-thumbnail');
+        const prevButton = document.querySelector('.thumbnails-nav-prev');
+        const nextButton = document.querySelector('.thumbnails-nav-next');
+        const newsSliderContainer = document.querySelector('.news-slider-container');
+
+        // Set up variables
+        let currentIndex = 0;
+        const slideCount = newsSlides.length;
+
+        // Initialize: set first slide as active
+        newsSlides[0].classList.add('active');
+        thumbnails[0].classList.add('active');
+
+        // Debug log to verify slide count
+        console.log(`Total slides: ${slideCount}`);
+
+        // Event listeners for navigation buttons
+        prevButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateSlide(-1);
+        });
+
+        nextButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateSlide(1);
+        });
+
+        // Event listeners for thumbnails
+        thumbnails.forEach(function(thumbnail, index) {
+            thumbnail.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Debug log
+                console.log(`Clicked thumbnail index: ${index}`);
+                goToSlide(index);
+            });
+        });
+
+        function navigateSlide(direction) {
+            let newIndex = currentIndex + direction;
+
+            if (newIndex >= slideCount) {
+                newIndex = 0;
+            } else if (newIndex < 0) {
+                newIndex = slideCount - 1;
+            }
+
+            goToSlide(newIndex);
+        }
+
+        function goToSlide(index) {
+            if (index < 0 || index >= slideCount || index === currentIndex) {
+                return;
+            }
+
+            // Debug log
+            console.log(`Going to slide: ${index}`);
+
+            // Remove active class from current slide and thumbnail
+            newsSlides[currentIndex].classList.remove('active');
+            thumbnails[currentIndex].classList.remove('active');
+
+            // Update current index
+            currentIndex = index;
+
+            // Add active class to new slide and thumbnail
+            newsSlides[currentIndex].classList.add('active');
+            thumbnails[currentIndex].classList.add('active');
+
+            // Debug log to verify active class was added
+            console.log(`Added active class to slide ${currentIndex}`);
+            console.log(`Slide ${currentIndex} classList:`, newsSlides[currentIndex].classList);
+        }
+
+        // Auto slide functionality (optional)
+        let autoSlideInterval = setInterval(function() {
+            navigateSlide(1);
+        }, 7000);
+
+        // Pause auto slide on hover
+        newsSliderContainer.addEventListener('mouseenter', function() {
+            clearInterval(autoSlideInterval);
+        });
+
+        newsSliderContainer.addEventListener('mouseleave', function() {
+            autoSlideInterval = setInterval(function() {
+                navigateSlide(1);
+            }, 7000);
+        });
+
+        // Touch swipe functionality for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        newsSliderContainer.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            // Pause auto slide during swipe
+            clearInterval(autoSlideInterval);
+        }, {passive: true});
+
+        newsSliderContainer.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+
+            // Restart auto slide after swipe
+            autoSlideInterval = setInterval(function() {
+                navigateSlide(1);
+            }, 7000);
+        }, {passive: true});
+
+        function handleSwipe() {
+            // Left swipe (next)
+            if (touchEndX < touchStartX - 50) {
+                navigateSlide(1);
+            }
+
+            // Right swipe (previous)
+            if (touchEndX > touchStartX + 50) {
+                navigateSlide(-1);
+            }
+        }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Xử lý fade animation khi cuộn
+        $(window).scroll(function() {
+            var windowBottom = $(window).scrollTop() + $(window).height();
+            var sectionTop = $('#section2').offset().top;
+
+            if (windowBottom > sectionTop + 100) {
+                $('.fade-image').each(function() {
+                    var delay = $(this).data('delay') || 0;
+                    var $this = $(this);
+
+                    setTimeout(function() {
+                        $this.addClass('visible');
+                    }, delay);
+                });
+            }
+        });
+
+        // Kiểm tra ngay khi tải trang
+        $(window).trigger('scroll');
+    });
+
+</script>
+</body>
+</html>
