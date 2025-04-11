@@ -57,6 +57,10 @@
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
+/* Poster fade transition */
+.intro-video {
+    transition: opacity 1s ease;
+}
 
 /* Logo styles */
 .brand-logo {

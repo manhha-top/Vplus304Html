@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player với HLS.js và MP4 Fallback</title>
+    <!-- Nhúng thư viện HLS.js từ CDN -->
+    <script src="js/hls.min.js"></script>
+</head>
+<body>
+<!-- Tạo thẻ video để phát nội dung -->
+<video id="video" autoplay muted loop playsinline preload="auto" poster=""></video>
+
+<script>
+    // Khai báo đường dẫn cho cả hai định dạng
+    const m3u8Source = 'https://s3-streaming.vietnamplus.vn/rest/vnplus/Video/2025_04_11/wzyrey_gtpeylxawfd.gy_pAt_NXD_1447041/playlist.m3u8';
+    const mp4Source = 'videos/VIDEO-1.mp4'; // Fallback MP4
+    const video = document.getElementById('video');
+
+    // Hàm chuyển sang phát MP4
+    function switchToMP4() {
+        console.log('Chuyển sang phát MP4');
+        video.src = mp4Source;
+        video.load();
+        // video.play(); // Bỏ comment nếu muốn tự động phát
+    }
+
+    // Kiểm tra hỗ trợ HLS.js
+    if (Hls.isSupported()) {
+        const hls = new Hls();
+
+        // Bắt sự kiện lỗi trong quá trình tải hoặc phát HLS
+        hls.on(Hls.Events.ERROR, function(event, data) {
+            if (data.fatal) {
+                // Lỗi nghiêm trọng, không thể khôi phục
+                console.error('Lỗi HLS:', data.details);
+                hls.destroy();
+                switchToMP4();
+            }
+        });
+
+        // Tải nguồn HLS
+        hls.loadSource(m3u8Source);
+        hls.attachMedia(video);
+
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            // Có thể tự động phát video
+            // video.play();
+        });
+    }
+    // Xử lý cho trình duyệt có hỗ trợ HLS bản địa (Safari)
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = m3u8Source;
+
+        // Bắt lỗi khi tải video không thành công
+        video.addEventListener('error', function() {
+            console.error('Lỗi khi tải HLS trên Safari');
+            switchToMP4();
+        });
+    }
+    // Không hỗ trợ HLS, chuyển sang MP4 ngay lập tức
+    else {
+        switchToMP4();
+    }
+</script>
+</body>
+</html>
